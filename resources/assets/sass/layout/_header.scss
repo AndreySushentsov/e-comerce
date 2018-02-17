@@ -1,0 +1,42 @@
+header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #333;
+  // position: fixed;
+  // top: 0;
+  // width: 100%;
+}
+.logo,.header__tel,.header__icons,.header__navigation{
+  flex-grow: 1;
+  color: #fff;
+}
+.logo{
+  text-align: center;
+  font-size: 1.2rem;
+}
+.header__navigation{
+  flex-grow: 2;
+  ul{
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    margin: 0 auto;
+  }
+  li{
+    padding: 20px;
+    flex-grow: 1;
+    a{
+      color: #fff;
+    }
+  }
+}
+.header__tel{
+  text-align: center;
+}
+.header__icons{
+  i{
+    color: #fff;
+  }
+}

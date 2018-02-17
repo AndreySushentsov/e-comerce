@@ -2,5 +2,13 @@
 // Fonts
 
 
-// Variables
+// base
+@import "base/reset";
 @import "base/variables";
+
+//layout
+@import "layout/header";
+@import "layout/latest-section";
+
+//components
+@import "components/pr-card";

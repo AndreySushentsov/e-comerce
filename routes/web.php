@@ -11,6 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', 'main');
+// Route::get('/products', 'products');
+// Route::get('/product', 'product');
+// Route::get('/cart', 'cart');
+// Route::get('/checkout', 'checkout');
+// Route::get('/thankyou', 'thankyou');
+
+Route::get('/', function(){
+  return view('main');
 });
