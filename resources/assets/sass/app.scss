@@ -9,6 +9,11 @@
 //layout
 @import "layout/header";
 @import "layout/latest-section";
+@import "layout/container";
 
 //components
 @import "components/pr-card";
+@import "components/breadcrumbs";
+
+//pages
+@import "pages/products";

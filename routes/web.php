@@ -11,13 +11,11 @@
 |
 */
 
-// Route::get('/', 'main');
+Route::get('/', 'MainPageController@index');
+Route::get('/products', 'ProductsPageController@index');
+
 // Route::get('/products', 'products');
 // Route::get('/product', 'product');
 // Route::get('/cart', 'cart');
 // Route::get('/checkout', 'checkout');
 // Route::get('/thankyou', 'thankyou');
-
-Route::get('/', function(){
-  return view('main');
-});
