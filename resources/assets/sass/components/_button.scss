@@ -11,3 +11,12 @@
     border: 1px solid #7c7c7c;
   }
 }
+.btn-success{
+  background-color: #43d994;
+  color: #fff;
+  border: 1px solid #43d994;
+  &:hover{
+    background: #16995d;
+    border: 1px solid #16995d;
+  }
+}

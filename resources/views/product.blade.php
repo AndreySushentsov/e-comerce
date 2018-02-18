@@ -5,9 +5,9 @@
   <div class="breadcrumbs">
     <a href="/">Главная</a>
     <span> / </span>
-    <a href="/proucts">категории</a>
+    <a href="/products">категории</a>
     <span> / </span>
-    <span>продукт</span>
+    <span>{{$product->name}}</span>
   </div>
   <div class="product__container">
     <div class="product__img-wrapper">
@@ -15,16 +15,16 @@
     </div>
     <div class="product__content">
       <div class="product__title">
-        BCAA
+        {{$product->name}}
       </div>
       <div class="product__descr">
-        Краткое описание
+        {{$product->details}}
       </div>
       <div class="product__price">
-
+        {{$product->price}} p.
       </div>
       <p class="product__full-descr">
-        Полное описание продукта.
+        {{$product->description}}
       </p>
       <form class="product__form" action="index.html" method="post">
         <button type="button" name="button" class="btn">Добавить</button>
@@ -38,58 +38,21 @@
       Вмесет с этим товаром просматривают:
     </div>
     <div class="card-mini__container">
-      <div class="card-mini">
-        <div class="card-mini__img-wrapper">
-          <a href="#"><img src="/img/bcaa_1.jpg" alt="bcaa"></a>
-        </div>
-        <div class="card-mini__content">
-          <div class="card-mini__title">
-            <a href="#">BCAAB</a>
+      @foreach ($sameView as $product)
+          <div class="card-mini">
+            <div class="card-mini__img-wrapper">
+              <a href="{{route('product.show', $product->slug)}}"><img src="/img/bcaa_1.jpg" alt="bcaa"></a>
+            </div>
+            <div class="card-mini__content">
+              <div class="card-mini__title">
+                <a href="{{route('product.show', $product->slug)}}">{{$product->name}}</a>
+              </div>
+              <div class="card-mini__price">
+                {{$product->price}} p.
+              </div>
+            </div>
           </div>
-          <div class="card-mini__price">
-            1999
-          </div>
-        </div>
-      </div>
-      <div class="card-mini">
-        <div class="card-mini__img-wrapper">
-          <a href="#"><img src="/img/bcaa_1.jpg" alt="bcaa"></a>
-        </div>
-        <div class="card-mini__content">
-          <div class="card-mini__title">
-            <a href="#">BCAAB</a>
-          </div>
-          <div class="card-mini__price">
-            1999
-          </div>
-        </div>
-      </div>
-      <div class="card-mini">
-        <div class="card-mini__img-wrapper">
-          <a href="#"><img src="/img/bcaa_1.jpg" alt="bcaa"></a>
-        </div>
-        <div class="card-mini__content">
-          <div class="card-mini__title">
-            <a href="#">BCAAB</a>
-          </div>
-          <div class="card-mini__price">
-            1999
-          </div>
-        </div>
-      </div>
-      <div class="card-mini">
-        <div class="card-mini__img-wrapper">
-          <a href="#"><img src="/img/bcaa_1.jpg" alt="bcaa"></a>
-        </div>
-        <div class="card-mini__content">
-          <div class="card-mini__title">
-            <a href="#">BCAAB</a>
-          </div>
-          <div class="card-mini__price">
-            1999
-          </div>
-        </div>
-      </div>
+      @endforeach
     </div>
   </div>
 </div>

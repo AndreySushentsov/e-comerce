@@ -29,7 +29,11 @@ class ProductsPageController extends Controller
     public function show($slug)
     {
         $product = Product::where('slug', $slug)->firstOrFail();
-        return view('product')->with('product', $product);
+        $sameView = Product::where('slug', '!=', $slug)->inRandomOrder()->take(4)->get();
+        return view('product')->with([
+          'product' => $product,
+          'sameView' => $sameView,
+        ]);
     }
 
 }

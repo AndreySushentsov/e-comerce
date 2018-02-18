@@ -6,10 +6,10 @@
   @foreach ($products as $product)
     <div class="pr-card">
       <div class="pr-card__img-wrapper">
-        <a href="#"><img src="/img/bcaa_1.jpg" alt="bcaa"></a>
+        <a href="{{route('product.show', $product->slug)}}"><img src="/img/bcaa_1.jpg" alt="bcaa"></a>
       </div>
       <div class="pr-card__title">
-        <a href="#">{{$product->name}}</a>
+        <a href="{{route('product.show', $product->slug)}}">{{$product->name}}</a>
       </div>
       <div class="pr-card__descr">
         <span>{{$product->ditails}}</span>
