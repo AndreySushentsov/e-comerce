@@ -1,0 +1,30 @@
+.product__container{
+  display: flex;
+  flex-direction: row;
+  margin-top: 40px;
+}
+.product__img-wrapper{
+  height: 200px;
+  width: 50%;
+  overflow: hidden;
+  text-align: center;
+  img{
+    width: auto;
+    height: 100%;
+  }
+}
+.product__title{
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.product__descr{
+  font-size: .8rem;
+  color: #333;
+  font-weight: lighter;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+.product__full-descr{
+  margin-bottom: 20px;
+}

@@ -1,0 +1,40 @@
+.card-mini__container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.card-mini{
+  display: flex;
+  flex-direction: row;
+  height: 100px;
+  width: 20%;
+  background: #fff;
+}
+.card-mini__img-wrapper{
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  text-align: center;
+  img{
+    height: auto;
+    width: 100%;
+  }
+}
+.card-mini__content{
+  flex-grow: 1;
+  text-align: center;
+  padding: 10px 0;
+}
+.card-mini__title{
+  height: 50px;
+  max-width: 100px;
+  overflow: hidden;
+  a{
+    color:#333;
+  }
+}
+.card-mini__price{
+  margin-top: 10px;
+  font-size: .8rem;
+}

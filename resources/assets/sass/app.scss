@@ -10,10 +10,14 @@
 @import "layout/header";
 @import "layout/latest-section";
 @import "layout/container";
+@import "layout/same-view";
 
 //components
 @import "components/pr-card";
+@import "components/card-mini";
 @import "components/breadcrumbs";
+@import "components/button";
 
 //pages
 @import "pages/products";
+@import "pages/product";

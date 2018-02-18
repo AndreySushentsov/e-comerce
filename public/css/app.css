@@ -89,6 +89,18 @@ header {
   margin: 0 auto;
 }
 
+.same-view {
+  background: #7c7c7c;
+  min-height: 200px;
+  width: 100%;
+}
+
+.same-view__title {
+  padding: 20px 0;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
 .pr-card {
   width: 22%;
   border: 1px solid #333;
@@ -133,6 +145,67 @@ header {
   font-size: .8rem;
 }
 
+.card-mini__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.card-mini {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  height: 100px;
+  width: 20%;
+  background: #fff;
+}
+
+.card-mini__img-wrapper {
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  text-align: center;
+}
+
+.card-mini__img-wrapper img {
+  height: auto;
+  width: 100%;
+}
+
+.card-mini__content {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.card-mini__title {
+  height: 50px;
+  max-width: 100px;
+  overflow: hidden;
+}
+
+.card-mini__title a {
+  color: #333;
+}
+
+.card-mini__price {
+  margin-top: 10px;
+  font-size: .8rem;
+}
+
 .breadcrumbs {
   padding: 20px 0;
   vertical-align: middle;
@@ -149,6 +222,22 @@ header {
 
 .breadcrumbs span {
   color: #333;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: 1px solid #333;
+  border-radius: 2px;
+  background-color: transparent;
+  cursor: pointer;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.btn:hover {
+  background-color: #7c7c7c;
+  color: #fff;
+  border: 1px solid #7c7c7c;
 }
 
 .products__container {
@@ -196,5 +285,46 @@ header {
 
 .products__menu-item a:hover {
   border-bottom: 1px solid #333;
+}
+
+.product__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-top: 40px;
+}
+
+.product__img-wrapper {
+  height: 200px;
+  width: 50%;
+  overflow: hidden;
+  text-align: center;
+}
+
+.product__img-wrapper img {
+  width: auto;
+  height: 100%;
+}
+
+.product__title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.product__descr {
+  font-size: .8rem;
+  color: #333;
+  font-weight: lighter;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.product__full-descr {
+  margin-bottom: 20px;
 }
 

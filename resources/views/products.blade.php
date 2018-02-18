@@ -27,90 +27,22 @@
     </div>
     <div class="products__content">
       <h1 class="products__title">BCAA</h1>
-      <div class="pr-card">
-        <div class="pr-card__img-wrapper">
-          <a href="#"><img src="/img/bcaa_1.jpg" alt="bcaa"></a>
+      @foreach($products as $product)
+        <div class="pr-card">
+          <div class="pr-card__img-wrapper">
+            <a href="#"><img src="/img/bcaa_1.jpg" alt="bcaa"></a>
+          </div>
+          <div class="pr-card__title">
+            <a href="#">{{$product->name}}</a>
+          </div>
+          <div class="pr-card__descr">
+            <span>{{$product->ditails}}</span>
+          </div>
+          <div class="pr-card__price">
+            <span>{{$product->price}} p.</span>
+          </div>
         </div>
-        <div class="pr-card__title">
-          <a href="#">BCAA</a>
-        </div>
-        <div class="pr-card__descr">
-          <span>Description</span>
-        </div>
-        <div class="pr-card__price">
-          <span>2999</span>
-        </div>
-      </div>
-      <div class="pr-card">
-        <div class="pr-card__img-wrapper">
-          <a href="#"><img src="/img/bcaa_1.jpg" alt="bcaa"></a>
-        </div>
-        <div class="pr-card__title">
-          <a href="#">BCAA</a>
-        </div>
-        <div class="pr-card__descr">
-          <span>Description</span>
-        </div>
-        <div class="pr-card__price">
-          <span>2999</span>
-        </div>
-      </div>
-      <div class="pr-card">
-        <div class="pr-card__img-wrapper">
-          <a href="#"><img src="/img/bcaa_1.jpg" alt="bcaa"></a>
-        </div>
-        <div class="pr-card__title">
-          <a href="#">BCAA</a>
-        </div>
-        <div class="pr-card__descr">
-          <span>Description</span>
-        </div>
-        <div class="pr-card__price">
-          <span>2999</span>
-        </div>
-      </div>
-      <div class="pr-card">
-        <div class="pr-card__img-wrapper">
-          <a href="#"><img src="/img/bcaa_1.jpg" alt="bcaa"></a>
-        </div>
-        <div class="pr-card__title">
-          <a href="#">BCAA</a>
-        </div>
-        <div class="pr-card__descr">
-          <span>Description</span>
-        </div>
-        <div class="pr-card__price">
-          <span>2999</span>
-        </div>
-      </div>
-      <div class="pr-card">
-        <div class="pr-card__img-wrapper">
-          <a href="#"><img src="/img/bcaa_1.jpg" alt="bcaa"></a>
-        </div>
-        <div class="pr-card__title">
-          <a href="#">BCAA</a>
-        </div>
-        <div class="pr-card__descr">
-          <span>Description</span>
-        </div>
-        <div class="pr-card__price">
-          <span>2999</span>
-        </div>
-      </div>
-      <div class="pr-card">
-        <div class="pr-card__img-wrapper">
-          <a href="#"><img src="/img/bcaa_1.jpg" alt="bcaa"></a>
-        </div>
-        <div class="pr-card__title">
-          <a href="#">BCAA</a>
-        </div>
-        <div class="pr-card__descr">
-          <span>Description</span>
-        </div>
-        <div class="pr-card__price">
-          <span>2999</span>
-        </div>
-      </div>
+      @endforeach
     </div>
   </div>
 </div>
