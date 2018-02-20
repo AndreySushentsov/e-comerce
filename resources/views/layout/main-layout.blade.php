@@ -32,7 +32,7 @@
           <a href="tel:89630424243" class="header__tel">89630424243</a>
           <div class="header__icons">
             <a href="#"><i class="far fa-user"></i></a>
-            <a href="#"><i class="fas fa-shopping-cart"></i></a>
+            <a href="/cart"><i class="fas fa-shopping-cart"></i></a>
           </div>
         </header>
         <main>

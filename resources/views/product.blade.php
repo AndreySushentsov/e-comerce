@@ -26,8 +26,12 @@
       <p class="product__full-descr">
         {{$product->description}}
       </p>
-      <form class="product__form" action="index.html" method="post">
-        <button type="button" name="button" class="btn">Добавить</button>
+      <form class="product__form" action="{{route('cart.store')}}" method="POST">
+        {{csrf_field()}}
+        <input type="hidden" name="id" value="{{$product->id}}">
+        <input type="hidden" name="name" value="{{$product->name}}">
+        <input type="hidden" name="price" value="{{$product->price}}">
+        <button type="submit" name="button" class="btn">Добавить</button>
       </form>
     </div>
   </div>

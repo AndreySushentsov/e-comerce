@@ -2,63 +2,44 @@
 
 @section('content')
 <div class="container">
-  <div class="cart__title">
-    Товаров в корзине:
-  </div>
-  <div class="cart__item">
-    <div class="cart__img-wrapper">
-      <img src="/img/bcaa_3.jpg" alt="">
+
+  @if(Cart::count() > 0)
+
+    <div class="cart__title">
+      @if(Cart::count() == 1)
+        {{Cart::count()}} Товар в корзине:
+      @elseif(Cart::count() <= 4)
+        {{Cart::count()}} Товара в корзине:
+      @else
+        {{Cart::count()}} Товаров в корзине:
+      @endif
     </div>
-    <div class="cart__item-title">
-      Название товара.
+
+    @foreach(Cart::content() as $item)
+    <div class="cart__item">
+      <div class="cart__img-wrapper">
+        <img src="/img/bcaa_3.jpg" alt="">
+      </div>
+      <div class="cart__item-title">
+        {{$item->name}}
+      </div>
+      <div class="remote-save">
+        <a href="#">Удалить</a>
+        <a href="#">Купить позже</a>
+      </div>
+      <div class="cart__item-input">
+        <input type="number" min="0" name="" value="">
+      </div>
+      <div class="cart__item-price">
+        {{$item->price}}
+      </div>
     </div>
-    <div class="remote-save">
-      <a href="#">Удалить</a>
-      <a href="#">Купить позже</a>
-    </div>
-    <div class="cart__item-input">
-      <input type="number" min="0" name="" value="">
-    </div>
-    <div class="cart__item-price">
-      2999 p.
-    </div>
-  </div>
-  <div class="cart__item">
-    <div class="cart__img-wrapper">
-      <img src="/img/bcaa_3.jpg" alt="">
-    </div>
-    <div class="cart__item-title">
-      Название товара.
-    </div>
-    <div class="remote-save">
-      <a href="#">Удалить</a>
-      <a href="#">Купить позже</a>
-    </div>
-    <div class="cart__item-input">
-      <input type="number" min="0" name="" value="">
-    </div>
-    <div class="cart__item-price">
-      2999 p.
-    </div>
-  </div>
-  <div class="cart__item">
-    <div class="cart__img-wrapper">
-      <img src="/img/bcaa_3.jpg" alt="">
-    </div>
-    <div class="cart__item-title">
-      Название товара.
-    </div>
-    <div class="remote-save">
-      <a href="#">Удалить</a>
-      <a href="#">Купить позже</a>
-    </div>
-    <div class="cart__item-input">
-      <input type="number" min="0" name="" value="">
-    </div>
-    <div class="cart__item-price">
-      2999 p.
-    </div>
-  </div>
+    @endforeach
+
+  @else
+  <p>Корзина пуста.</p>
+  @endif
+
   <div class="price-block">
     <p class="price-block__text">
     Aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehen

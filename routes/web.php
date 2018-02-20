@@ -1,5 +1,7 @@
 <?php
 
+use Gloudemans\Shoppingcart\Facades\Cart;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,11 +16,12 @@
 Route::get('/', 'MainPageController@index');
 Route::get('/products', 'ProductsPageController@index');
 Route::get('/products/{product}', 'ProductsPageController@show')->name('product.show');
-Route::get('/cart', 'CartController@index');
+Route::get('/cart', 'CartController@index')->name('cart.index');
+Route::post('/cart', 'CartController@store')->name('cart.store');
 // Route::get('/products', 'products');
-// Route::get('/product', function(){
-//   return view('product');
-// });
+Route::get('/empty', function(){
+  Cart::destroy();
+});
 // Route::get('/cart', 'cart');
 // Route::get('/checkout', 'checkout');
 // Route::get('/thankyou', 'thankyou');
