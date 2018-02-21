@@ -18,6 +18,10 @@ Route::get('/products', 'ProductsPageController@index');
 Route::get('/products/{product}', 'ProductsPageController@show')->name('product.show');
 Route::get('/cart', 'CartController@index')->name('cart.index');
 Route::post('/cart', 'CartController@store')->name('cart.store');
+Route::delete('/cart/{product}', 'CartController@destroy')->name('cart.destroy');
+Route::post('/cart/save-for-later/{product}', 'CartController@saveForLater')->name('cart.saveforlater');
+
+
 // Route::get('/products', 'products');
 Route::get('/empty', function(){
   Cart::destroy();

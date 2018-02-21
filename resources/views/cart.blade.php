@@ -18,20 +18,28 @@
     @foreach(Cart::content() as $item)
     <div class="cart__item">
       <div class="cart__img-wrapper">
-        <img src="/img/bcaa_3.jpg" alt="">
+        <a href="{{route('product.show', $item->model->slug)}}"><img src="/img/bcaa_3.jpg" alt="{{$item->model->name}}"></a>
       </div>
       <div class="cart__item-title">
-        {{$item->name}}
+        <a href="{{route('product.show', $item->model->slug)}}">{{$item->model->name}}</a>
       </div>
       <div class="remote-save">
-        <a href="#">Удалить</a>
+        <form class="form" action="{{route('cart.destroy', $item->rowId)}}" method="post">
+          {{csrf_field()}}
+          {{method_field('DELETE')}}
+          <button type="submit" name="button">Удалить</button>
+        </form>
+        <form class="form" action="{{route('cart.saveforlater', $item->rowId)}}" method="post">
+          {{csrf_field()}}
+          <button type="submit" name="button">Сохранить</button>
+        </form>
         <a href="#">Купить позже</a>
       </div>
       <div class="cart__item-input">
         <input type="number" min="0" name="" value="">
       </div>
       <div class="cart__item-price">
-        {{$item->price}}
+        {{$item->model->price}}
       </div>
     </div>
     @endforeach
@@ -47,20 +55,38 @@
     <div class="price-block__pirces">
       <div class="subtotal">
         <span>Сумма заказа: </span>
-        <span> 5000 p.</span>
+        <span>{{Cart::subtotal()}} p.</span>
       </div>
-      <div class="discount">
+      <!-- <div class="discount">
         <span>Скидка: </span>
-        <span> 1000 p.</span>
-      </div>
+        <span> p.</span>
+      </div> -->
       <div class="total-price">
         <span>Итог: </span>
-        <span> 4000 p.</span>
+        <span> {{Cart::total()}} p.</span>
       </div>
     </div>
   </div>
   <form action="index.html" class="cart__form" method="post">
     <button type="button" class="btn btn-success" name="button">Оплатить</button>
   </form>
+
+  <div class="card-mini__container">
+
+        <div class="card-mini">
+          <div class="card-mini__img-wrapper">
+            <a href="#"><img src="/img/bcaa_1.jpg" alt="bcaa"></a>
+          </div>
+          <div class="card-mini__content">
+            <div class="card-mini__title">
+              <a href="#">Product Name</a>
+            </div>
+            <div class="card-mini__price">
+              1999 p.
+            </div>
+          </div>
+        </div>
+
+  </div>
 </div>
 @endsection

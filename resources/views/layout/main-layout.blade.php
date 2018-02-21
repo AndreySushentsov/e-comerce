@@ -19,7 +19,7 @@
           <nav class="header__navigation">
             <ul>
               <li>
-                <a href="#">спортивное питание</a>
+                <a href="/products">спортивное питание</a>
               </li>
               <li>
                 <a href="#">бренды</a>

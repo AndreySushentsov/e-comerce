@@ -35,6 +35,14 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
+        $duplicates = Cart::search(function($cartItem, $rowId) use ($request){
+          return $cartItem->id === $request->id;
+        });
+
+        if($duplicatesp>isNotEmpty()){
+          return redirect()->route('cart.index');
+        }
+
         Cart::add($request->id, $request->name, 1, $request->price)
             ->associate('App\Product');
 
@@ -83,6 +91,26 @@ class CartController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Cart::remove($id);
+
+        return back();
+    }
+
+    /**
+     * Save for Later
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function saveForLater($id)
+    {
+      $item = Cart::get($id);
+
+      Cart::remove($id);
+
+      Cart::instance('saveForLater')->add($item->id, $item->name, $item->price)
+          ->associate('App\Product');
+
+      return redirect()->route('cart.index');
     }
 }
