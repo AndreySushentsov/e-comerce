@@ -14,12 +14,15 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 */
 
 Route::get('/', 'MainPageController@index');
-Route::get('/products', 'ProductsPageController@index');
+Route::get('/products', 'ProductsPageController@index')->name('product.product');
 Route::get('/products/{product}', 'ProductsPageController@show')->name('product.show');
 Route::get('/cart', 'CartController@index')->name('cart.index');
 Route::post('/cart', 'CartController@store')->name('cart.store');
 Route::delete('/cart/{product}', 'CartController@destroy')->name('cart.destroy');
 Route::post('/cart/save-for-later/{product}', 'CartController@saveForLater')->name('cart.saveforlater');
+
+Route::delete('/saveforlater/{product}', 'SaveForLaterController@destroy')->name('saveForLater.destroy');
+Route::post('/saveforlater/save-for-later/{product}', 'SaveForLaterController@saveForLater')->name('saveForLater.saveforlater');
 
 
 // Route::get('/products', 'products');

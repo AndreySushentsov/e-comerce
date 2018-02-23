@@ -39,7 +39,7 @@ class CartController extends Controller
           return $cartItem->id === $request->id;
         });
 
-        if($duplicatesp>isNotEmpty()){
+        if($duplicates->isNotEmpty()){
           return redirect()->route('cart.index');
         }
 
@@ -108,7 +108,15 @@ class CartController extends Controller
 
       Cart::remove($id);
 
-      Cart::instance('saveForLater')->add($item->id, $item->name, $item->price)
+      $duplicates = Cart::search(function($cartItem, $rowId) use ($request){
+        return $cartItem->id === $request->id;
+      });
+
+      if($duplicates->isNotEmpty()){
+        return redirect()->route('cart.index');
+      }
+
+      Cart::instance('saveForLater')->add($item->id, $item->name, 1, $item->price)
           ->associate('App\Product');
 
       return redirect()->route('cart.index');

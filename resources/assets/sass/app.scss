@@ -11,12 +11,16 @@
 @import "layout/latest-section";
 @import "layout/container";
 @import "layout/same-view";
+@import "layout/news-sales-section";
+@import "layout/advantages-section";
 
 //components
 @import "components/pr-card";
 @import "components/card-mini";
 @import "components/breadcrumbs";
 @import "components/button";
+@import "components/jumbotron";
+@import "components/section-title";
 
 //pages
 @import "pages/products";

@@ -15,7 +15,7 @@
     <body>
       <div id="app">
         <header>
-          <a href="#" class="logo">Starostin</a>
+          <a href="/" class="logo">Starostin</a>
           <nav class="header__navigation">
             <ul>
               <li>

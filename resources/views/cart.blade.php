@@ -1,7 +1,7 @@
 @extends('layout.main-layout')
 
 @section('content')
-<div class="container">
+<div class="container cart__container">
 
   @if(Cart::count() > 0)
 
@@ -33,7 +33,6 @@
           {{csrf_field()}}
           <button type="submit" name="button">Сохранить</button>
         </form>
-        <a href="#">Купить позже</a>
       </div>
       <div class="cart__item-input">
         <input type="number" min="0" name="" value="">
@@ -72,21 +71,36 @@
   </form>
 
   <div class="card-mini__container">
-
+    @if(Cart::instance('saveForLater')->count() > 0)
+      @foreach(Cart::instance('saveForLater')->content() as $item)
         <div class="card-mini">
           <div class="card-mini__img-wrapper">
             <a href="#"><img src="/img/bcaa_1.jpg" alt="bcaa"></a>
           </div>
           <div class="card-mini__content">
             <div class="card-mini__title">
-              <a href="#">Product Name</a>
+              <a href="#">{{$item->model->name}}</a>
+            </div>
+            <div class="remote-save">
+              <form class="form" action="{{route('saveForLatert.destroy', $item->rowId)}}" method="post">
+                {{csrf_field()}}
+                {{method_field('DELETE')}}
+                <button type="submit" name="button">Удалить</button>
+              </form>
+              <form class="form" action="{{route('saveForLater.saveforlater', $item->rowId)}}" method="post">
+                {{csrf_field()}}
+                <button type="submit" name="button">Перемистить в карзину</button>
+              </form>
             </div>
             <div class="card-mini__price">
-              1999 p.
+              {{$item->model->price}}
             </div>
           </div>
         </div>
-
+      @endforeach
+    @else
+      <span>Нет сохраненных товаров</span>
+    @endif
   </div>
 </div>
 @endsection

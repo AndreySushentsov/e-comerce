@@ -12,6 +12,10 @@ a {
   text-decoration: none;
 }
 
+body {
+  margin-top: 55px;
+}
+
 header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -24,6 +28,10 @@ header {
       -ms-flex-align: center;
           align-items: center;
   background: #333;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
 .logo,
@@ -91,9 +99,10 @@ header {
 }
 
 .same-view {
-  background: #7c7c7c;
+  background: #e6e6e6;
   min-height: 200px;
   width: 100%;
+  padding-top: 20px;
 }
 
 .same-view__title {
@@ -102,22 +111,134 @@ header {
   font-weight: bold;
 }
 
+.news-sales__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 40px;
+}
+
+.news-sales__container a {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 40%;
+  height: 150px;
+  border-radius: 3px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 2rem;
+  color: #333;
+  -webkit-transition: -webkit-box-shadow .6s;
+  transition: -webkit-box-shadow .6s;
+  transition: box-shadow .6s;
+  transition: box-shadow .6s, -webkit-box-shadow .6s;
+}
+
+.news-sales__container a:hover {
+  -webkit-box-shadow: 0px 1px 6px #656565;
+          box-shadow: 0px 1px 6px #656565;
+}
+
+.advantages {
+  width: 100%;
+  min-height: 300px;
+  background-color: #ededed;
+  margin-bottom: 30px;
+  padding-top: 30px;
+}
+
+.advantages__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 30px;
+}
+
+.advantages__item {
+  width: 30%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.advantages__item i {
+  font-size: 2rem;
+  width: 65px;
+  height: 65px;
+  border: 3px solid;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.advantages__item-title {
+  text-align: center;
+  font-weight: bold;
+}
+
+.advantages__item-title:before {
+  display: block;
+  width: 20%;
+  height: 3px;
+  content: '';
+  background: #333;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 .pr-card {
   width: 22%;
-  border: 1px solid #333;
   border-radius: 3px;
   margin: 9px;
   padding: 10px 0;
   display: inline-block;
-  -webkit-transition: -webkit-box-shadow .2s linear;
-  transition: -webkit-box-shadow .2s linear;
-  transition: box-shadow .2s linear;
-  transition: box-shadow .2s linear, -webkit-box-shadow .2s linear;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: .3s;
+  transition: .3s;
 }
 
 .pr-card:hover {
-  -webkit-box-shadow: 0px 3px 5px #8f8f8f;
-          box-shadow: 0px 3px 5px #8f8f8f;
+  -webkit-box-shadow: 0px 0px 5px #8f8f8f;
+          box-shadow: 0px 0px 5px #8f8f8f;
+  -webkit-transform: scale(1.03);
+          transform: scale(1.03);
 }
 
 .pr-card__img-wrapper {
@@ -170,6 +291,8 @@ header {
   height: 100px;
   width: 20%;
   background: #fff;
+  border: 1px solid #333;
+  border-radius: 3px;
 }
 
 .card-mini__img-wrapper {
@@ -250,6 +373,30 @@ header {
 .btn-success:hover {
   background: #16995d;
   border: 1px solid #16995d;
+}
+
+.jumbotron {
+  height: 300px;
+  background: url("/img/slide_6.jpeg");
+  background-repeat: no-repeat;
+  background-position: cover;
+  background-attachment: fixed;
+  padding: 13% 0;
+}
+
+.jumbotron h1 {
+  color: #fff;
+  font-size: 3rem;
+  margin-left: 5%;
+  width: 50%;
+}
+
+.section__title {
+  font-size: 1.5rem;
+  color: #333;
+  width: 20%;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .products__container {
@@ -353,6 +500,11 @@ header {
   font-weight: bolder;
 }
 
+.cart__container {
+  padding-top: 50px;
+  min-height: 200px;
+}
+
 .cart__title {
   font-size: 1.3rem;
   margin: 40px 0;
@@ -416,17 +568,21 @@ header {
           flex-grow: 1;
 }
 
-.remote-save a {
-  display: block;
-  font-size: .7rem;
+.remote-save button {
+  background: transparent;
+  border: none;
   font-style: italic;
-  color: #333;
-  -webkit-transition: color .2s;
-  transition: color .2s;
+  font-size: .7rem;
+  cursor: pointer;
+  -webkit-transition: .2s;
+  transition: .2s;
+  border-radius: 3px;
+  padding: 5px;
 }
 
-.remote-save a:hover {
-  color: black;
+.remote-save button:hover {
+  background-color: #e6e6e6;
+  color: #fff;
 }
 
 .price-block {
