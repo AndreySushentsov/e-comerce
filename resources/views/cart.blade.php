@@ -2,7 +2,11 @@
 
 @section('content')
 <div class="container cart__container">
-
+  <div class="breadcrumbs">
+    <a href="/">Главная</a>
+    <span> / </span>
+    <span>корзина</span>
+  </div>
   @if(Cart::count() > 0)
 
     <div class="cart__title">
@@ -66,11 +70,9 @@
       </div>
     </div>
   </div>
-  <form action="index.html" class="cart__form" method="post">
-    <button type="button" class="btn btn-success" name="button">Оплатить</button>
-  </form>
+  <a href="{{route('checkout.index')}}" class="btn btn-success">Оплатить</a>
 
-  <div class="card-mini__container">
+  <div class="card-mini__container save-for-later__container">
     @if(Cart::instance('saveForLater')->count() > 0)
       @foreach(Cart::instance('saveForLater')->content() as $item)
         <div class="card-mini">

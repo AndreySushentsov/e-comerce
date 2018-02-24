@@ -1,0 +1,28 @@
+.form__group{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  label{
+    font-size: .8rem;
+    margin-bottom: 5px;
+  }
+  input{
+    padding: 5px 10px;
+    border-radius: 3px;
+  }
+  input[placeholder]{
+    font-style: italic;
+  }
+}
+.form__address{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  input{
+    width: 85%;
+  }
+  .form__address-house, .form__address-flat{
+    width: 30%;
+  }
+}
