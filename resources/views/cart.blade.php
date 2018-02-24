@@ -82,7 +82,7 @@
               <a href="#">{{$item->model->name}}</a>
             </div>
             <div class="remote-save">
-              <form class="form" action="{{route('saveForLatert.destroy', $item->rowId)}}" method="post">
+              <form class="form" action="{{route('saveForLater.destroy', $item->rowId)}}" method="post">
                 {{csrf_field()}}
                 {{method_field('DELETE')}}
                 <button type="submit" name="button">Удалить</button>

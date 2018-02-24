@@ -22,7 +22,7 @@ Route::delete('/cart/{product}', 'CartController@destroy')->name('cart.destroy')
 Route::post('/cart/save-for-later/{product}', 'CartController@saveForLater')->name('cart.saveforlater');
 
 Route::delete('/saveforlater/{product}', 'SaveForLaterController@destroy')->name('saveForLater.destroy');
-Route::post('/saveforlater/save-for-later/{product}', 'SaveForLaterController@saveForLater')->name('saveForLater.saveforlater');
+Route::post('/saveforlater/save-for-later/{product}', 'SaveForLaterController@switchToCart')->name('saveForLater.saveforlater');
 
 
 // Route::get('/products', 'products');

@@ -18,7 +18,7 @@ class SaveForLaterController extends Controller
     {
         Cart::instance('saveForLater')->remove($id);
 
-        return back()->with('success message', 'Товар был перемещен удален')
+        return back()->with('success message', 'Товар был перемещен удален');
     }
 
     /**
@@ -33,8 +33,8 @@ class SaveForLaterController extends Controller
 
       Cart::instance('saveForLater')->remove($id);
 
-      $duplicates = Cart::instance('default')->search(function($cartItem, $rowId) use ($request){
-        return $cartItem->id === $request->id;
+      $duplicates = Cart::instance('default')->search(function($cartItem, $rowId) use ($id){
+        return $rowId === $id;
       });
 
       if($duplicates->isNotEmpty()){

@@ -108,8 +108,8 @@ class CartController extends Controller
 
       Cart::remove($id);
 
-      $duplicates = Cart::search(function($cartItem, $rowId) use ($request){
-        return $cartItem->id === $request->id;
+      $duplicates = Cart::instance('saveForLater')->search(function($cartItem, $rowId) use ($id){
+        return $rowId->id === $id;
       });
 
       if($duplicates->isNotEmpty()){
