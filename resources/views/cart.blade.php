@@ -39,7 +39,11 @@
         </form>
       </div>
       <div class="cart__item-input">
-        <input type="number" min="0" name="" value="">
+        <select  name="" class="cart__item-select" data-id="{{$item->rowId}}">
+          @for($i = 1; $i < 5 + 1; $i++)
+            <option {{ $item->qty == $i ? "selected" : ""}}>{{$i}}</option>
+          @endfor
+        </select>
       </div>
       <div class="cart__item-price">
         {{$item->model->price}}
@@ -106,4 +110,28 @@
     @endif
   </div>
 </div>
+@endsection
+@section('extra-js')
+<script type="text/javascript">
+  (function(){
+    const className = document.querySelectorAll('.cart__item-select');
+
+    Array.from(className).forEach(function(elem) {
+      elem.addEventListener('change', function() {
+        const id = elem.getAttribute('data-id');
+
+        axios.patch(`/cart/${id}`, {
+          quantity: this.value
+        })
+        .then(function (response) {
+          console.log(response);
+          window.location.href = '{{route('cart.index')}}'
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+      });
+    });
+  })();
+</script>
 @endsection

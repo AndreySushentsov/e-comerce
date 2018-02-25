@@ -40,7 +40,7 @@ class CheckOutController extends Controller
     {
         $contents = Cart::content()->map(function($item)
         {
-          return $item->model->slug.', '$item->qty;
+          return $item->model->slug.', '.$item->qty;
         })->values()->toJson();
 
         try {
@@ -58,7 +58,8 @@ class CheckOutController extends Controller
 
           Cart::instance('default')->destroy();
 
-          return back()->with('success_message', 'Оплата успешно произведена.')
+          return back()->with('success_message', 'Оплата успешно произведена.');
+
         } catch (CardErrorException $e) {
           return back()->withErrors('Error ' . $e->getMessage());
         }
