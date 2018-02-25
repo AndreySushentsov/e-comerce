@@ -91,4 +91,8 @@
 }
 .save-for-later__container{
   margin-top: 50px;
+  flex-direction: column;
+  span{
+    margin-bottom: 30px;
+  }
 }

@@ -74,25 +74,26 @@
 
   <div class="card-mini__container save-for-later__container">
     @if(Cart::instance('saveForLater')->count() > 0)
+      <span>Сохраненные товары:</span>
       @foreach(Cart::instance('saveForLater')->content() as $item)
         <div class="card-mini">
           <div class="card-mini__img-wrapper">
             <a href="#"><img src="/img/bcaa_1.jpg" alt="bcaa"></a>
           </div>
+          <div class="remote-save">
+            <form class="form" action="{{route('saveForLater.destroy', $item->rowId)}}" method="post">
+              {{csrf_field()}}
+              {{method_field('DELETE')}}
+              <button type="submit" name="button">Удалить</button>
+            </form>
+            <form class="form" action="{{route('saveForLater.saveforlater', $item->rowId)}}" method="post">
+              {{csrf_field()}}
+              <button type="submit" name="button">в корзину</button>
+            </form>
+          </div>
           <div class="card-mini__content">
             <div class="card-mini__title">
               <a href="#">{{$item->model->name}}</a>
-            </div>
-            <div class="remote-save">
-              <form class="form" action="{{route('saveForLater.destroy', $item->rowId)}}" method="post">
-                {{csrf_field()}}
-                {{method_field('DELETE')}}
-                <button type="submit" name="button">Удалить</button>
-              </form>
-              <form class="form" action="{{route('saveForLater.saveforlater', $item->rowId)}}" method="post">
-                {{csrf_field()}}
-                <button type="submit" name="button">Перемистить в карзину</button>
-              </form>
             </div>
             <div class="card-mini__price">
               {{$item->model->price}}

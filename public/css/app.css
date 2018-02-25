@@ -95,7 +95,7 @@ header {
 .container {
   width: 80%;
   margin: 0 auto;
-  padding-bottom: 50px;
+  padding-bottom: 30px;
 }
 
 .same-view {
@@ -424,6 +424,23 @@ header {
   width: 30%;
 }
 
+.payment-details .card-date-cvs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.payment-details .card-date-cvs input {
+  width: 30%;
+}
+
 .page__title {
   padding: 30px 0 20px 0;
   font-size: 2rem;
@@ -681,6 +698,14 @@ header {
 
 .save-for-later__container {
   margin-top: 50px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.save-for-later__container span {
+  margin-bottom: 30px;
 }
 
 .checkout__container {
@@ -691,9 +716,66 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .checkout__form {
   width: 40%;
+}
+
+.checkout__order {
+  width: 45%;
+}
+
+.payment-details__title {
+  margin: 30px 0;
+  font-size: 1.2rem;
+}
+
+.form__submit {
+  width: 100%;
+}
+
+.checkout__item {
+  width: 100%;
+}
+
+.checkout__order-prices-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 10px 0;
+}
+
+.StripeElement {
+  background-color: white;
+  padding: 5px 12px;
+  border: 1px solid #eee;
+  border-radius: 3px;
+  margin-top: 5px;
+  -webkit-box-shadow: inset 1px 1px 1px #9a9a9a;
+          box-shadow: inset 1px 1px 1px #9a9a9a;
+}
+
+.StripeElement--focus {
+  -webkit-box-shadow: 0 1px 3px 0 #cfd7df;
+          box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.StripeElement--invalid {
+  border-color: #fa755a;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
 }
 

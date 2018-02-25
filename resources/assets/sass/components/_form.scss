@@ -26,3 +26,14 @@
     width: 30%;
   }
 }
+.payment-details .card-date-cvs{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  input{
+    width: 30%;
+  }
+  // .form__group{
+  //   flex-grow:1;
+  // }
+}

@@ -11,11 +11,12 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <link href="{{asset('css/fontawesome-all.min.css')}}" rel="stylesheet">
         <!-- Styles -->
+        @yield('extra-css')
     </head>
     <body>
       <div id="app">
         <header>
-          <a href="/" class="logo">Starostin</a>
+          <a href="/" class="logo">SportPit</a>
           <nav class="header__navigation">
             <ul>
               <li>
@@ -44,5 +45,6 @@
       </div>
 
       <script src="{{asset('js/app.js')}}"></script>
+      @yield('extra-js')
     </body>
 </html>
