@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use App\Category;
 
 
 class ProductsPageController extends Controller
@@ -15,8 +16,24 @@ class ProductsPageController extends Controller
      */
     public function index()
     {
-      $products = Product::inRandomOrder()->take(8)->get();
-      return view('products')->with('products', $products);
+      if(request()->category){
+        $products = Product::with('categories')->whereHas('categories', function($query){
+          $query->where('slug', request()->category);
+        })->get();
+        $categories = Category::all();
+        $categoryName = $categories->where('slug', request()->category)->first()->name;
+
+      }else{
+        $products = Product::inRandomOrder()->take(8)->get();
+        $categories = Category::all();
+        $categoryName = 'Featured';
+      }
+
+      return view('products')->with([
+        'products' => $products,
+        'categories' => $categories,
+        'categoryName' => $categoryName
+      ]);
     }
 
 

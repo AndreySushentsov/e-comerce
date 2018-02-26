@@ -9,12 +9,15 @@
   </div>
   <div class="products__container">
     <div class="products__sidebar">
-      <div class="products__menu-title">Категории</div>
+      <div class="products__menu-title">{{$categoryName}}</div>
       <ul class="products__menu-list">
-        <li class="products__menu-item">
-          <a href="#">BCAA</a>
-        </li>
-        <li class="products__menu-item">
+        @foreach($categories as $category)
+          <li class="products__menu-item">
+            <a href="{{route('product.product', ['category' => $category->slug])}}">{{$category->name}}</a>
+          </li>
+        @endforeach
+
+        <!-- <li class="products__menu-item">
           <a href="#">Протеин</a>
         </li>
         <li class="products__menu-item">
@@ -22,7 +25,7 @@
         </li>
         <li class="products__menu-item">
           <a href="#">Гейнеры</a>
-        </li>
+        </li> -->
       </ul>
     </div>
     <div class="products__content">
