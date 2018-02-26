@@ -9,7 +9,7 @@
   </div>
   <div class="products__container">
     <div class="products__sidebar">
-      <div class="products__menu-title">{{$categoryName}}</div>
+      <div class="products__menu-title">Категории товаров</div>
       <ul class="products__menu-list">
         @foreach($categories as $category)
           <li class="products__menu-item">
@@ -29,7 +29,7 @@
       </ul>
     </div>
     <div class="products__content">
-      <h1 class="products__title">BCAA</h1>
+      <h1 class="products__title">{{$categoryName}}</h1>
       @foreach($products as $product)
         <div class="pr-card">
           <div class="pr-card__img-wrapper">
