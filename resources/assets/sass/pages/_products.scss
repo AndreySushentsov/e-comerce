@@ -32,6 +32,9 @@
     }
   }
 }
+.products__menu-item.active a {
+  font-weight: bold;
+}
 .products__title-section{
   display: flex;
   flex-direction: row;

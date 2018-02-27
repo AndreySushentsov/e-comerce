@@ -471,6 +471,25 @@ header {
   text-align: center;
 }
 
+.pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin: 10px 0;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.pagination a,
+.pagination span {
+  margin: 0 5px;
+}
+
 .products__container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -516,6 +535,10 @@ header {
 
 .products__menu-item a:hover {
   border-bottom: 1px solid #333;
+}
+
+.products__menu-item.active a {
+  font-weight: bold;
 }
 
 .products__title-section {

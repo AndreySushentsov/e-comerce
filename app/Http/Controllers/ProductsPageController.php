@@ -16,23 +16,33 @@ class ProductsPageController extends Controller
      */
     public function index()
     {
+      $pagination = 4;
+
       if(request()->category){
         $products = Product::with('categories')->whereHas('categories', function($query){
           $query->where('slug', request()->category);
-        })->get();
+        });
         $categories = Category::all();
         $categoryName = $categories->where('slug', request()->category)->first()->name;
 
       }else{
-        $products = Product::inRandomOrder()->take(8)->get();
+        $products = Product::where('featured',true);
         $categories = Category::all();
         $categoryName = 'Спртивное питание:';
+      }
+
+      if(request()->sort == 'low_high'){
+        $products = $products->orderBy('price')->paginate($pagination);
+      }elseif (request()->sort == 'high_low') {
+        $products = $products->orderBy('price', 'desc')->paginate($pagination);
+      }else{
+        $products = $products->paginate($pagination);
       }
 
       return view('products')->with([
         'products' => $products,
         'categories' => $categories,
-        'categoryName' => $categoryName
+        'categoryName' => $categoryName,
       ]);
     }
 

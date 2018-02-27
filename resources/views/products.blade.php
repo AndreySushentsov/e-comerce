@@ -12,7 +12,7 @@
       <div class="products__menu-title">Категории товаров</div>
       <ul class="products__menu-list">
         @foreach($categories as $category)
-          <li class="products__menu-item">
+          <li class="products__menu-item {{ request()->category == $category->slug ? 'active' : '' }}">
             <a href="{{route('product.product', ['category' => $category->slug])}}">{{$category->name}}</a>
           </li>
         @endforeach
@@ -33,9 +33,9 @@
       <div class="products__title-section">
         <h1 class="products__title">{{$categoryName}}</h1>
         <div class="products__sort-filter">
-          <a href="#">По убыванию </a>
+          <a href="{{route('product.product', ['category' => request()->category, 'sort' => 'low_high'])}}">по возрастанию </a>
           <span> | </span>
-          <a href="#"> по возрастанию.</a>
+          <a href="{{route('product.product', ['category' => request()->category, 'sort' => 'high_low'])}}"> по убыванию</a>
         </div>
       </div>
 
@@ -77,6 +77,9 @@
           <strong>В данной категории нет товаров.</strong>
         </div>
       @endforelse
+      <div class="pagination">
+        {{ $products->appends(request()->input())->links() }}
+      </div>
     </div>
   </div>
 </div>
