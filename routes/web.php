@@ -28,10 +28,9 @@ Route::post('/saveforlater/save-for-later/{product}', 'SaveForLaterController@sw
 Route::get('/checkout', 'CheckOutController@index')->name('checkout.index');
 Route::post('/checkout', 'CheckOutController@store')->name('checkout.store');
 
-// Route::get('/products', 'products');
+
 Route::get('/empty', function(){
   Cart::destroy();
 });
-// Route::get('/cart', 'cart');
-// Route::get('/checkout', 'checkout');
+
 // Route::get('/thankyou', 'thankyou');

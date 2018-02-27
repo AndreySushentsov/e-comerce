@@ -5,6 +5,8 @@
   <div class="breadcrumbs">
     <a href="/">Главная</a>
     <span> / </span>
+    <a href="/products">каталог</a>
+    <span> / </span>
     <span>корзина</span>
   </div>
   @if(Cart::count() > 0)

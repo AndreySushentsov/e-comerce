@@ -26,7 +26,7 @@ class ProductsPageController extends Controller
       }else{
         $products = Product::inRandomOrder()->take(8)->get();
         $categories = Category::all();
-        $categoryName = 'Featured';
+        $categoryName = 'Спртивное питание:';
       }
 
       return view('products')->with([

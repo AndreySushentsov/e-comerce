@@ -17,6 +17,7 @@
           </li>
         @endforeach
 
+
         <!-- <li class="products__menu-item">
           <a href="#">Протеин</a>
         </li>
@@ -29,7 +30,16 @@
       </ul>
     </div>
     <div class="products__content">
-      <h1 class="products__title">{{$categoryName}}</h1>
+      <div class="products__title-section">
+        <h1 class="products__title">{{$categoryName}}</h1>
+        <div class="products__sort-filter">
+          <a href="#">По убыванию </a>
+          <span> | </span>
+          <a href="#"> по возрастанию.</a>
+        </div>
+      </div>
+
+
       @foreach($products as $product)
         <div class="pr-card">
           <div class="pr-card__img-wrapper">
@@ -46,6 +56,27 @@
           </div>
         </div>
       @endforeach
+
+      @forelse($products as $product)
+        <div class="pr-card">
+          <div class="pr-card__img-wrapper">
+            <a href="{{route('product.show', $product->slug)}}"><img src="/img/bcaa_1.jpg" alt="bcaa"></a>
+          </div>
+          <div class="pr-card__title">
+            <a href="{{route('product.show', $product->slug)}}">{{$product->name}}</a>
+          </div>
+          <div class="pr-card__descr">
+            <span>{{$product->ditails}}</span>
+          </div>
+          <div class="pr-card__price">
+            <span>{{$product->price}} p.</span>
+          </div>
+        </div>
+      @empty
+        <div>
+          <strong>В данной категории нет товаров.</strong>
+        </div>
+      @endforelse
     </div>
   </div>
 </div>
