@@ -490,6 +490,33 @@ header {
   margin: 0 5px;
 }
 
+.coupone {
+  margin-top: 30px;
+  border-radius: 3px;
+  padding: 10px;
+  background: #d3d3d3;
+  width: 70%;
+}
+
+.coupone__form {
+  margin-top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.coupone__form .form__group {
+  margin-bottom: 0;
+  margin-right: 20px;
+}
+
 .products__container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -807,6 +834,11 @@ header {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 10px 0;
+}
+
+.checkout__discount {
+  font-size: .8rem;
+  font-style: italic;
 }
 
 .StripeElement {

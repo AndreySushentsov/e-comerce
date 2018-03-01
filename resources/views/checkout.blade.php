@@ -103,11 +103,32 @@
       </div>
     @endforeach
     <div class="checkout__order-prices">
+      <div class="checkout__order-prices-row checkout__discount">
+        <span>Размер скидки ({{session()->get('coupone')['name']}}):</span>
+        <span>{{session()->get('coupone')['discount']}}</span>
+      </div>
       <div class="checkout__order-prices-row">
         <span>Итого к оплате:</span>
         <span>{{Cart::total()}}</span>
       </div>
     </div>
+    <div class="coupone">
+      <div class="coupone__title">
+        Введите код скидки:
+      </div>
+      <form class="form coupone__form" action="{{route('coupone.store')}}" method="post">
+        {{csrf_field()}}
+        <div class="form__group">
+          <input type="text" name="coupon_code" id="coupon_code" placeholder="Введите код">
+        </div>
+        <button type="submit" class="btn btn-success" name="button">Отправить</button>
+      </form>
+    </div>
+    @if (session()->has('success_message'))
+      <div class="alert alert-success">
+          {{ session()->get('success_message') }}
+      </div>
+    @endif
   </div>
 </div>
 @endsection
