@@ -37,3 +37,8 @@ Route::get('/empty', function(){
 });
 
 // Route::get('/thankyou', 'thankyou');
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});

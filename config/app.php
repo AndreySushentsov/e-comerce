@@ -182,6 +182,12 @@ return [
          */
 
          Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
+
+         /*
+          * Voyager admin panel
+          */
+          
+         TCG\Voyager\VoyagerServiceProvider::class,
     ],
 
     /*

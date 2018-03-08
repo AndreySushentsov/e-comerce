@@ -103,13 +103,17 @@
       </div>
     @endforeach
     <div class="checkout__order-prices">
-      <div class="checkout__order-prices-row checkout__discount">
-        <span>Размер скидки ({{session()->get('coupone')['name']}}):</span>
-        <span>{{session()->get('coupone')['discount']}}</span>
-      </div>
+      @if(session()->get('coupone')['name'])
+        <div class="checkout__order-prices-row checkout__discount">
+          <span>Размер скидки ({{session()->get('coupone')['name']}}):</span>
+          <span>{{session()->get('coupone')['discount']}}</span>
+        </div>
+      @endif
       <div class="checkout__order-prices-row">
+        @if(!session()->get('coupone'))
         <span>Итого к оплате:</span>
         <span>{{Cart::total()}}</span>
+        @endif
       </div>
     </div>
     <div class="coupone">

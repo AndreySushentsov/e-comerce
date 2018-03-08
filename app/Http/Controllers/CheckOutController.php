@@ -17,7 +17,12 @@ class CheckOutController extends Controller
      */
     public function index()
     {
-        return view('checkout');
+      $discount = session()->get('coupone')['discount'];
+      $newTotal = Cart::total() - $discount;
+        return view('checkout')->with([
+          'discount' => $discount,
+          'newTotal' => $newTotal,
+        ]);
     }
 
     /**

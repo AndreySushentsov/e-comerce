@@ -1,24 +1,33 @@
 <?php
 
-use Carbon\Carbon;
-use App\Category;
 use Illuminate\Database\Seeder;
+use TCG\Voyager\Models\Category;
 
 class CategoriesTableSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Auto generated seed file.
      *
      * @return void
      */
     public function run()
     {
-      $now = Carbon::now()->toDateTimeString();
-        Category::insert([
-          ['name'=> 'BCAA', 'slug'=> 'bcaa', 'created_at' => $now, 'updated_at' => $now],
-          ['name'=> 'Протеин', 'slug'=> 'protein', 'created_at' => $now, 'updated_at' => $now],
-          ['name'=> 'Витамины', 'slug'=> 'vitaminy', 'created_at' => $now, 'updated_at' => $now],
-          ['name'=> 'L-Carnetine', 'slug'=> 'l-carnetine', 'created_at' => $now, 'updated_at' => $now],
+        $category = Category::firstOrNew([
+            'slug' => 'category-1',
         ]);
+        if (!$category->exists) {
+            $category->fill([
+                'name' => 'Category 1',
+            ])->save();
+        }
+
+        $category = Category::firstOrNew([
+            'slug' => 'category-2',
+        ]);
+        if (!$category->exists) {
+            $category->fill([
+                'name' => 'Category 2',
+            ])->save();
+        }
     }
 }
