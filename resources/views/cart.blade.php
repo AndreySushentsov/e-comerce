@@ -24,7 +24,7 @@
     @foreach(Cart::content() as $item)
     <div class="cart__item">
       <div class="cart__img-wrapper">
-        <a href="{{route('product.show', $item->model->slug)}}"><img src="/img/bcaa_3.jpg" alt="{{$item->model->name}}"></a>
+        <a href="{{route('product.show', $item->model->slug)}}"><img src="{{asset('storage/'.$item->model->image)}}" alt="{{$item->model->name}}"></a>
       </div>
       <div class="cart__item-title">
         <a href="{{route('product.show', $item->model->slug)}}">{{$item->model->name}}</a>

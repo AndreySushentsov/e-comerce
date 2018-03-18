@@ -31,8 +31,24 @@
             </ul>
           </nav>
           <a href="tel:89630424243" class="header__tel">89630424243</a>
+
           <div class="header__icons">
-            <a href="#"><i class="far fa-user"></i></a>
+            @guest
+            <a href="/login"><i class="far fa-user"></i></a>
+            @else
+            <div class="user_name">
+              {{ Auth::user()->name }}              
+            </div>
+            <a href="{{ route('logout') }}"
+                onclick="event.preventDefault();
+                         document.getElementById('logout-form').submit();">
+                выход
+            </a>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                {{ csrf_field() }}
+            </form>
+            @endguest
             <a href="/cart"><i class="fas fa-shopping-cart"></i></a>
           </div>
         </header>

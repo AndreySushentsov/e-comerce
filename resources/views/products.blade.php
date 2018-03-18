@@ -40,10 +40,10 @@
       </div>
 
 
-      @foreach($products as $product)
+      <!-- @foreach($products as $product)
         <div class="pr-card">
           <div class="pr-card__img-wrapper">
-            <a href="{{route('product.show', $product->slug)}}"><img src="/img/bcaa_1.jpg" alt="bcaa"></a>
+            <a href="{{route('product.show', $product->slug)}}"><img src="{{asset('storage/'.$product->image)}}" alt="{{$product->name}}"></a>
           </div>
           <div class="pr-card__title">
             <a href="{{route('product.show', $product->slug)}}">{{$product->name}}</a>
@@ -55,21 +55,24 @@
             <span>{{$product->price}} p.</span>
           </div>
         </div>
-      @endforeach
+      @endforeach -->
 
       @forelse($products as $product)
         <div class="pr-card">
           <div class="pr-card__img-wrapper">
-            <a href="{{route('product.show', $product->slug)}}"><img src="/img/bcaa_1.jpg" alt="bcaa"></a>
+            <a href="{{route('product.show', $product->slug)}}"><img src="{{asset('storage/'.$product->image)}}" alt="{{$product->name}}"></a>
           </div>
           <div class="pr-card__title">
             <a href="{{route('product.show', $product->slug)}}">{{$product->name}}</a>
           </div>
           <div class="pr-card__descr">
-            <span>{{$product->ditails}}</span>
+            <span>{{$product->details}}</span>
           </div>
           <div class="pr-card__price">
             <span>{{$product->price}} p.</span>
+          </div>
+          <div class="pr-card__button">
+            <a href="#"> В корзину </a>
           </div>
         </div>
       @empty

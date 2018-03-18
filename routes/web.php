@@ -28,7 +28,7 @@ Route::post('/saveforlater/save-for-later/{product}', 'SaveForLaterController@sw
 Route::post('/coupone', 'CouponesController@store')->name('coupone.store');
 Route::delete('/coupone', 'CouponesController@destroy')->name('coupone.destroy');
 
-Route::get('/checkout', 'CheckOutController@index')->name('checkout.index');
+Route::get('/checkout', 'CheckOutController@index')->name('checkout.index')->middleware('auth');
 Route::post('/checkout', 'CheckOutController@store')->name('checkout.store');
 
 
@@ -42,3 +42,7 @@ Route::get('/empty', function(){
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

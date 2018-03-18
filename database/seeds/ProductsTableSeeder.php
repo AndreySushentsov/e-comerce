@@ -1,8 +1,6 @@
 <?php
 use App\Product;
 use Illuminate\Database\Seeder;
-
-
 class ProductsTableSeeder extends Seeder
 {
     /**
@@ -22,7 +20,6 @@ class ProductsTableSeeder extends Seeder
           // 'category_id' => 1,
         ])->categories()->attach(1);
       }
-
       for($i = 1; $i < 10; $i++){
         Product::create([
           'name' => 'Protein' . $i,
@@ -33,7 +30,6 @@ class ProductsTableSeeder extends Seeder
           // 'category_id' => 2,
         ])->categories()->attach(2);
       }
-
       for($i = 1; $i < 10; $i++){
         Product::create([
           'name' => 'Creatine' . $i,
@@ -44,7 +40,6 @@ class ProductsTableSeeder extends Seeder
           // 'category_id' => 3,
         ])->categories()->attach(3);
       }
-
       for($i = 1; $i < 10; $i++){
         Product::create([
           'name' => 'L-Carnetine' ,$i,
@@ -55,9 +50,6 @@ class ProductsTableSeeder extends Seeder
           // 'category_id' => 4,
         ])->categories()->attach(4);
       }
-
-
-
       for($i = 1; $i < 15; $i++){
         Product::create([
           'name' => 'Витамины' . $i,
@@ -68,6 +60,5 @@ class ProductsTableSeeder extends Seeder
           // 'category_id' => 5,
         ])->categories()->attach(5);
       }
-
     }
 }

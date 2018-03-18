@@ -15,6 +15,7 @@
 @import "layout/advantages-section";
 
 //components
+@import "components/image-gallery";
 @import "components/pr-card";
 @import "components/card-mini";
 @import "components/breadcrumbs";
@@ -31,6 +32,8 @@
 @import "pages/product";
 @import "pages/cart";
 @import "pages/checkout";
+@import "pages/login";
+@import "pages/register";
 
 //vendor
 @import "utils/stripe";

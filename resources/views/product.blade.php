@@ -10,8 +10,24 @@
     <span>{{$product->name}}</span>
   </div>
   <div class="product__container">
-    <div class="product__img-wrapper">
-      <a href="#"><img src="/img/bcaa_1.jpg" alt="bcaa"></a>
+    <div class="product__img-gallery">
+      <div class="image-gallery">
+        <div class="image-gallery__main-img">
+          <div class="img-wrapper">
+            <a href="#"><img id="gallery-img" class="active" src="{{asset('storage/'.$product->image)}}" alt="{{$product->name}}"></a>
+          </div>
+        </div>
+        <div class="image-gallery__small-img">
+          <div class="img-wrapper image-gallery__small-img-item">
+            <a href="#"><img class="thumbnail-imgs" src="{{asset('storage/'.$product->image)}}" alt="{{$product->name}}"></a>
+          </div>
+          @foreach(json_decode($product->images, true) as $image)
+            <div class="img-wrapper image-gallery__small-img-item">
+              <a href="#"><img class="thumbnail-imgs" src="{{asset('storage/'.$image)}}" alt="{{$product->name}}"></a>
+            </div>
+          @endforeach
+        </div>
+      </div>
     </div>
     <div class="product__content">
       <div class="product__title">
@@ -24,7 +40,7 @@
         {{$product->price}} p.
       </div>
       <p class="product__full-descr">
-        {{$product->description}}
+        {!!$product->description!!}
       </p>
       <form class="product__form" action="{{route('cart.store')}}" method="POST">
         {{csrf_field()}}
@@ -60,4 +76,28 @@
     </div>
   </div>
 </div>
+@endsection
+
+@section('extra-js')
+<script type="text/javascript">
+  (function() {
+    const mainImg = document.querySelector('#gallery-img');
+    const imgs = document.querySelectorAll('.thumbnail-imgs');
+
+    function thumbnailClick(e) {
+      // mainImg.src = this.src;
+
+      mainImg.classList.remove('active');
+      mainImg.addEventListener('transitionend', () => {
+        mainImg.src = this.src;
+        mainImg.classList.add('active');
+      });
+
+      imgs.forEach((el) => el.classList.remove('selected'));
+      this.classList.add('selected');
+    }
+
+    imgs.forEach((el) => el.addEventListener('click', thumbnailClick));
+  })();
+</script>
 @endsection

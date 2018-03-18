@@ -39,7 +39,7 @@
     <div class="form__email">
       <div class="form__group">
         <label for="email">E-mail:</label>
-        <input type="email" name="email" placeholder="email" id="email" required>
+        <input type="email" name="email" placeholder="email" id="email" value="{{auth()->user()->email}}" readonly>
       </div>
     </div>
     <div class="form__phone">
@@ -89,7 +89,7 @@
     @foreach(Cart::content() as $item)
       <div class="cart__item checkout__item">
         <div class="cart__img-wrapper">
-          <a href="#"><img src="/img/bcaa_3.jpg" alt="img"></a>
+          <a href="#"><img src="{{asset('storage/'.$item->model->image)}}" alt="{{$item->model->name}}"></a>
         </div>
         <div class="cart__item-title">
           <a href="#">{{$item->model->name}}</a>

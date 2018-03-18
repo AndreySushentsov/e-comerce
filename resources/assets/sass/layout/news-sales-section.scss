@@ -1,3 +1,6 @@
+.news-sales{
+  background: #f5f5f5;
+}
 .news-sales__container{
   display: flex;
   flex-direction: row;
@@ -18,10 +21,13 @@
     // position: relative;
     // overflow: hidden;
     color:#333;
+    background-color: transparent;
 
-    transition:box-shadow .6s;
+    transition: .5s;
     &:hover{
       box-shadow: 0px 1px 6px #656565;
+      background-color: #fff;
+      // color:#fff;
     }
     // img{
     //   // position: absolute;
