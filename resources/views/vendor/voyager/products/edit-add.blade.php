@@ -77,15 +77,16 @@
                             @endforeach
                             <div class="form__group">
                               <label>Категории:</label>
-                              <!-- <ul>
+                              <ul>
                                 @foreach($allCategories as $category)
-                                  <li>
-                                    <label><input value="{{ $category->id}}" type="checkbox" name="category[]">{{$category->name}}</label>
-                                  </li>
+                                 <li>
+                                   <label><input value="{{$category->id}}" type="checkbox" name="category[]" {{$categoryForProduct->contains($category) ? "checked" : ""}}>{{$category->name}}</label>
+                                 </li>
                                 @endforeach
-                              </ul>                               -->
+                              </ul>
                             </div>
                         </div><!-- panel-body -->
+
                         <div class="panel-footer">
                             <button type="submit" class="btn btn-primary save">{{ __('voyager.generic.save') }}</button>
                         </div>
