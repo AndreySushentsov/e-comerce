@@ -48,7 +48,7 @@
         <input type="tel" name="phone" placeholder="phone" id="phone" required>
       </div>
     </div>
-    <div class="payment-details">
+    <!-- <div class="payment-details">
       <div class="payment-details__title">
         Платежные данные
       </div>
@@ -62,27 +62,14 @@
             Номер карты и CVC-код
           </label>
           <div id="card-element">
-            <!-- A Stripe Element will be inserted here. -->
+
           </div>
-          <!-- Used to display form errors. -->
+
           <div id="card-errors" role="alert"></div>
         </div>
       </div>
-      <!-- <div class="form__group">
-        <label for="card-number">Номер карты:</label>
-        <input type="number" name="card-number" placeholder="Номер карты" id="card-number" required>
-      </div>
-      <div class="card-date-cvs">
-        <div class="form__group">
-          <label for="card-date">Дата действия карты:</label>
-          <input type="text" name="card-date" placeholder="YY/mm" id="card-date" required>
-        </div>
-        <div class="form__group">
-          <label for="card-cvc">CVC карты:</label>
-          <input type="number" name="card-cvc" placeholder="cvc" id="card-cvc" required>
-        </div>
-      </div> -->
-    </div>
+
+    </div> -->
     <button id="complete-order" type="submit" name="button" class="btn btn-success form__submit">Оплатить</button>
   </form>
   <div class="checkout__order">

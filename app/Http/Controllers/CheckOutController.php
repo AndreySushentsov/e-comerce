@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Order;
+use App\OrderProduct;
 use Illuminate\Http\Request;
 use App\Http\Requests\CheckoutRequest;
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -61,6 +63,31 @@ class CheckOutController extends Controller
             ],
           ]);
 
+          //Добавить в таблицу Order
+          $order = Order::create([
+            'user_id' => auth()->user() ? auth()->user()->id : null,
+            'billing_city' => $request->city,
+            'billing_street'=> $request->street,
+            'billing_house'=> $request->house-number,
+            'billing_flat' => $request->flat-number,
+            'billing_email'=> $request->email,
+            'billing_phone' => $request->phone,
+            'billing_discount' => $this->getNumbers()->get('discount'),
+            'billing_discount_code' => $this->getNumbers()->get('code'),
+            'billing_subtotal' => $this->getNumbers()->get('newSubtotal'),
+            'billing_total' => $this->getNumbers()->get('newTotal'),
+          ]);
+
+          //Добавить в таблицу order_product
+          foreach(Cart::content() as $item){
+            OrderProduct::create([
+              'order_id' => $order->id,
+              'product_id' => $item->model->id,
+              'quantity' => $item->qty,
+            ]);
+          }
+
+
           Cart::instance('default')->destroy();
 
           return back()->with('success_message', 'Оплата успешно произведена.');
@@ -68,8 +95,28 @@ class CheckOutController extends Controller
         } catch (CardErrorException $e) {
           return back()->withErrors('Error ' . $e->getMessage());
         }
-
     }
+
+    private function getNumbers()
+    {
+        // $tax = config('cart.tax') / 100;
+        $discount = session()->get('coupon')['discount'];
+        $code = session()->get('coupon')['name'];
+        $newSubtotal = (Cart::subtotal() - $discount);
+        // $newTax = $newSubtotal * $tax;
+        $newTotal = $newSubtotal;
+
+        return collect([
+            // 'tax' => $tax,
+            'discount' => $discount,
+            'code' => $code,
+            'newSubtotal' => $newSubtotal,
+            // 'newTax' => $newTax,
+            'newTotal' => $newTotal,
+        ]);
+    }
+
+
 
     /**
      * Display the specified resource.
