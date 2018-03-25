@@ -1,6 +1,6 @@
 @extends('layout.main-layout')
 @section('extra-css')
-  <script src="https://js.stripe.com/v3/"></script>
+  <!-- <script src="https://js.stripe.com/v3/"></script> -->
 @endsection
 @section('content')
 <div class="container">
@@ -16,7 +16,7 @@
   </div>
 </div>
 <div class="container checkout__container">
-  <form class="form checkout__form" action="{{route('checkout.store')}}" method="POST" id="payment-form">
+  <form class="form checkout__form" action="{{route('checkout.store')}}" method="post" id="payment-form">
     {{csrf_field()}}
     <div class="form__address">
       <div class="form__group">
@@ -29,11 +29,11 @@
       </div>
       <div class="form__group">
         <label for="house-number">Дом:</label>
-        <input type="number" name="house-number" class="form__address-house" id="house-number" required>
+        <input type="text" name="house_number" class="form__address-house" id="house-number" required>
       </div>
       <div class="form__group">
         <label for="flat-number">Квартира:</label>
-        <input type="number" name="flat-number" class="form__address-flat" id="flat-number" required>
+        <input type="text" name="flat_number" class="form__address-flat" id="flat-number" required>
       </div>
     </div>
     <div class="form__email">
@@ -70,7 +70,7 @@
       </div>
 
     </div> -->
-    <button id="complete-order" type="submit" name="button" class="btn btn-success form__submit">Оплатить</button>
+    <input id="complete-order" type="submit"  class="btn btn-success form__submit" value="Оплатить">
   </form>
   <div class="checkout__order">
     @foreach(Cart::content() as $item)
@@ -82,7 +82,7 @@
           <a href="#">{{$item->model->name}}</a>
         </div>
         <div class="cart__item-input">
-          <input type="number" min="0" name="" value="">
+          <input type="number" min="0" name="" value="{{$item->model->count}}">
         </div>
         <div class="cart__item-price">
           {{$item->model->price}}
@@ -125,7 +125,7 @@
 @endsection
 
 @section('extra-js')
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   (function() {
     // Create a Stripe client.
     var stripe = Stripe('pk_test_6pRNASCoBOKtIshFeQd4XMUh');
@@ -214,5 +214,5 @@
 
 
   })();
-</script>
+</script> -->
 @endsection

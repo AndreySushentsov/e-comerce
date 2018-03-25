@@ -43,7 +43,7 @@ class CheckOutController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CheckoutRequest $request)
+    public function store(Request $request)
     {
         $contents = Cart::content()->map(function($item)
         {
@@ -51,50 +51,62 @@ class CheckOutController extends Controller
         })->values()->toJson();
 
         try {
-          $charge = Stripe::charges()->create([
-            'amount' => Cart::total() / 100,
-            'currency' => 'RUB',
-            'source' => $request->stripeToken,
-            'description' => 'Order',
-            'receipt_email' => $request->email,
-            'metadata' => [
-              'contents' => $contents,
-              'quantity' => Cart::instance('default')->count(),
-            ],
-          ]);
+          // $charge = Stripe::charges()->create([
+          //   'amount' => Cart::total() / 100,
+          //   'currency' => 'RUB',
+          //   'source' => $request->stripeToken,
+          //   'description' => 'Order',
+          //   'receipt_email' => $request->email,
+          //   'metadata' => [
+          //     'contents' => $contents,
+          //     'quantity' => Cart::instance('default')->count(),
+          //     'discount' => collect(session()->get('coupon'))->toJson(),
+          //   ],
+          // ]);
 
-          //Добавить в таблицу Order
-          $order = Order::create([
-            'user_id' => auth()->user() ? auth()->user()->id : null,
-            'billing_city' => $request->city,
-            'billing_street'=> $request->street,
-            'billing_house'=> $request->house-number,
-            'billing_flat' => $request->flat-number,
-            'billing_email'=> $request->email,
-            'billing_phone' => $request->phone,
-            'billing_discount' => $this->getNumbers()->get('discount'),
-            'billing_discount_code' => $this->getNumbers()->get('code'),
-            'billing_subtotal' => $this->getNumbers()->get('newSubtotal'),
-            'billing_total' => $this->getNumbers()->get('newTotal'),
-          ]);
 
-          //Добавить в таблицу order_product
-          foreach(Cart::content() as $item){
-            OrderProduct::create([
-              'order_id' => $order->id,
-              'product_id' => $item->model->id,
-              'quantity' => $item->qty,
-            ]);
-          }
-
+          $this->addToOrdersTables($request, null);
 
           Cart::instance('default')->destroy();
+          session()->forget('coupone');
 
-          return back()->with('success_message', 'Оплата успешно произведена.');
+          return back()->with('success_message', 'Заказ принят, мы свяжемся с вами в ближайшее время.');
 
         } catch (CardErrorException $e) {
+          $this->addToOrdersTables($request, $e->getMessage());
           return back()->withErrors('Error ' . $e->getMessage());
         }
+    }
+
+
+    protected function addToOrdersTables($request, $error){
+      //Добавить в таблицу Order
+      $order = Order::create([
+        'user_id' => auth()->user() ? auth()->user()->id : null,
+        'billing_city' => $request->city,
+        'billing_street'=> $request->street,
+        'billing_house'=> $request->house_number,
+        'billing_flat' => $request->flat_number,
+        'billing_email'=> $request->email,
+        'billing_phone' => $request->phone,
+        // 'billing_discount' => $this->getNumbers()->get('discount'),
+        // 'billing_discount_code' => $this->getNumbers()->get('code'),
+        // 'billing_subtotal' => $this->getNumbers()->get('newSubtotal'),
+        // 'billing_total' => $this->getNumbers()->get('newTotal'),
+        'billing_discount' => 0,
+        'billing_discount_code' => '',
+        'billing_subtotal' => $this->getNumbers()->get('newSubtotal'),
+        'billing_total' => $this->getNumbers()->get('newTotal'),
+      ]);
+
+      //Добавить в таблицу order_product
+      foreach(Cart::content() as $item){
+        OrderProduct::create([
+          'order_id' => $order->id,
+          'product_id' => $item->model->id,
+          'quantity' => $item->qty,
+        ]);
+      }
     }
 
     private function getNumbers()
