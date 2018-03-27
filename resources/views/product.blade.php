@@ -3,11 +3,13 @@
 @section('content')
 <div class="container">
   <div class="breadcrumbs">
-    <a href="/">Главная</a>
-    <span> / </span>
-    <a href="/products">категории</a>
-    <span> / </span>
-    <span>{{$product->name}}</span>
+    <div class="breadcrumbs__container">
+      <a href="/">Главная</a>
+      <span> / </span>
+      <a href="/products">категории</a>
+      <span> / </span>
+      <span>{{$product->name}}</span>
+    </div>
   </div>
   <div class="product__container">
     <div class="product__img-gallery">

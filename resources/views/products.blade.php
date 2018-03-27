@@ -3,9 +3,11 @@
 @section('content')
 <div class="container">
   <div class="breadcrumbs">
-    <a href="/">Главная</a>
-    <span> / </span>
-    <span>категории</span>
+    <div class="breadcrumbs__container">
+      <a href="/">Главная</a>
+      <span> / </span>
+      <span>категории</span>
+    </div>
   </div>
   <div class="products__container">
     <div class="products__sidebar">

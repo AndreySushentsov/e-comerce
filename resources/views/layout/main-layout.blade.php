@@ -8,7 +8,7 @@
         <title>e-comerce</title>
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
         <link href="{{asset('css/fontawesome-all.min.css')}}" rel="stylesheet">
         <!-- Styles -->
         @yield('extra-css')
@@ -20,24 +20,34 @@
           <nav class="header__navigation">
             <ul>
               <li>
-                <a href="/products">спортивное питание</a>
+                <a href="/products">Категории</a>
               </li>
               <li>
-                <a href="#">бренды</a>
+                <a href="#">Производители</a>
               </li>
               <li>
-                <a href="#">аксессуары</a>
+                <a href="#">Блог</a>
               </li>
             </ul>
           </nav>
-          <a href="tel:89630424243" class="header__tel">89630424243</a>
+          <div class="search__container">
+            <form class="" action="{{route('search')}}" value="{{request()->input('query')}}" method="get">
+              <i class="fa fa-search"></i>
+              <input type="text" name="query" id="query" value="" placeholder="Поиск">
+            </form>
+          </div>
+          <div class="header__tel">
+            <span>тел: </span>
+            <a href="tel:89630424243" title="Контактный телефон"> 89630424243</a>
+          </div>
+
 
           <div class="header__icons">
             @guest
             <a href="/login"><i class="far fa-user"></i></a>
             @else
             <div class="user_name">
-              {{ Auth::user()->name }}              
+              {{ Auth::user()->name }}
             </div>
             <a href="{{ route('logout') }}"
                 onclick="event.preventDefault();
@@ -51,6 +61,11 @@
             @endguest
             <a href="/cart"><i class="fas fa-shopping-cart"></i></a>
           </div>
+          <a herf="#" class="nav_burger">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+          </a>
         </header>
         <main>
           @yield('content')

@@ -6,6 +6,10 @@
 @import "base/reset";
 @import "base/variables";
 
+
+//utils
+@import "utils/mixin";
+
 //layout
 @import "layout/header";
 @import "layout/latest-section";
@@ -15,6 +19,7 @@
 @import "layout/advantages-section";
 
 //components
+@import "components/nav-burger";
 @import "components/image-gallery";
 @import "components/pr-card";
 @import "components/card-mini";
@@ -26,6 +31,8 @@
 @import "components/section-title";
 @import "components/pagination";
 @import "components/coupone";
+@import "components/search";
+@import "components/table";
 
 //pages
 @import "pages/products";

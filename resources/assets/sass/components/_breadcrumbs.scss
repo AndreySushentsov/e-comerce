@@ -1,6 +1,9 @@
 .breadcrumbs{
   padding: 20px 0;
   vertical-align: middle;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   a,span{
     font-size: .7rem;
   }
