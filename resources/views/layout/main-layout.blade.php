@@ -14,6 +14,10 @@
         @yield('extra-css')
     </head>
     <body>
+      <!-- overlay menu -->
+      @include('components.overlay-menu')
+      <!-- end overlay menu -->
+      
       <div id="app">
         <header>
           <a href="/" class="logo">SportPit</a>
@@ -61,11 +65,15 @@
             @endguest
             <a href="/cart"><i class="fas fa-shopping-cart"></i></a>
           </div>
-          <a herf="#" class="nav_burger">
+
+          <!-- burger menu -->
+          <a herf="#" class="nav_burger" id="nav-burger">
             <div class="bar1"></div>
             <div class="bar2"></div>
             <div class="bar3"></div>
           </a>
+          <!-- end burger menu -->
+
         </header>
         <main>
           @yield('content')

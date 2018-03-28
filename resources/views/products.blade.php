@@ -18,17 +18,6 @@
             <a href="{{route('product.product', ['category' => $category->slug])}}">{{$category->name}}</a>
           </li>
         @endforeach
-
-
-        <!-- <li class="products__menu-item">
-          <a href="#">Протеин</a>
-        </li>
-        <li class="products__menu-item">
-          <a href="#">Витаминные комплексы</a>
-        </li>
-        <li class="products__menu-item">
-          <a href="#">Гейнеры</a>
-        </li> -->
       </ul>
     </div>
     <div class="products__content">
@@ -41,25 +30,31 @@
         </div>
       </div>
 
+      <div class="products__cards-container">
+        @foreach($products as $product)
+          <!-- <div class="pr-card">
+            <div class="pr-card__img-wrapper">
+              <a href="{{route('product.show', $product->slug)}}"><img src="{{asset('storage/'.$product->image)}}" alt="{{$product->name}}"></a>
+            </div>
+            <div class="pr-card__title">
+              <span>{{$product->name}}</span>
+            </div>
+            <div class="pr-card__descr">
+              <span>{{$product->details}}</span>
+            </div>
+            <div class="pr-card__price">
+              <span>{{$product->price}} p.</span>
+            </div>
+            <div class="pr-card__button">
+              <a href="{{route('product.show', $product->slug)}}" class="btn btn-success">В корзину</a>
+            </div>
+          </div> -->
+          @include('components.pr-card')
+        @endforeach
+      </div>
 
-      <!-- @foreach($products as $product)
-        <div class="pr-card">
-          <div class="pr-card__img-wrapper">
-            <a href="{{route('product.show', $product->slug)}}"><img src="{{asset('storage/'.$product->image)}}" alt="{{$product->name}}"></a>
-          </div>
-          <div class="pr-card__title">
-            <a href="{{route('product.show', $product->slug)}}">{{$product->name}}</a>
-          </div>
-          <div class="pr-card__descr">
-            <span>{{$product->ditails}}</span>
-          </div>
-          <div class="pr-card__price">
-            <span>{{$product->price}} p.</span>
-          </div>
-        </div>
-      @endforeach -->
 
-      @forelse($products as $product)
+      <!-- @forelse ($products as $product)
         <div class="pr-card">
           <div class="pr-card__img-wrapper">
             <a href="{{route('product.show', $product->slug)}}"><img src="{{asset('storage/'.$product->image)}}" alt="{{$product->name}}"></a>
@@ -81,7 +76,7 @@
         <div>
           <strong>В данной категории нет товаров.</strong>
         </div>
-      @endforelse
+      @endforelse -->
       <div class="pagination">
         {{ $products->appends(request()->input())->links() }}
       </div>

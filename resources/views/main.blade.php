@@ -4,37 +4,13 @@
 <div class="jumbotron">
   <h1>Спортивное питание по самым низким ценам.</h1>
 </div>
-<section class="advantages">
-  <div class="section__title">
-    Наши приемущества.
-  </div>
-  <div class="container advantages__container">
-    <div class="advantages__item">
-      <i class="fas fa-truck"></i>
-      <div class="advantages__item-title">
-        Доставка по городу бесплатно.
-      </div>
-    </div>
-    <div class="advantages__item">
-      <i class="far fa-credit-card"></i>
-      <div class="advantages__item-title">
-        Оплата наличными либо по банковской карте.
-      </div>
-    </div>
-    <div class="advantages__item">
-      <i class="far fa-thumbs-up"></i>
-      <div class="advantages__item-title">
-        Доступность. Мы находимся в крупном торговом центре.
-      </div>
-    </div>
-  </div>
-</section>
+@include('components.advantages')
 <section class="latest">
   <div class="section__title">
     Популярные товары.
   </div>
   @foreach ($products as $product)
-    <div class="pr-card">
+    <!-- <div class="pr-card">
       <div class="pr-card__img-wrapper">
         <a href="{{route('product.show', $product->slug)}}"><img src="{{asset('storage/'.$product->image)}}" alt="{{$product->name}}"></a>
       </div>
@@ -47,7 +23,8 @@
       <div class="pr-card__price">
         <span>{{$product->price}} p.</span>
       </div>
-    </div>
+    </div> -->
+    @include('components.pr-card')
   @endforeach
 </section>
 <section class="news-sales">
