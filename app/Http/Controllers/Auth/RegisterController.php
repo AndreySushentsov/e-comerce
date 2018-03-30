@@ -67,5 +67,11 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+       //  User::create([
+       //     'name' => $data['name'],
+       //     'email' => $data['email'],
+       //     'password' => bcrypt($data['password']),
+       // ]);
+       // return str_replace(url('/'), '', session()->get('previousUrl', '/'));
     }
 }

@@ -49,3 +49,9 @@
     width: auto;
   }
 }
+
+@include mobile{
+ .image-gallery__small-img{
+   display: none;
+ }
+};

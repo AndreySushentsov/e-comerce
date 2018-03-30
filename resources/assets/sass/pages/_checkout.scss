@@ -29,3 +29,14 @@
   font-size: .8rem;
   font-style: italic;
 }
+
+
+@include tablet{
+  .checkout__container{
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  .checkout__order, .checkout__form{
+    width: 80%;
+  }
+};

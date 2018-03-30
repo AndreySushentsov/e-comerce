@@ -49,4 +49,12 @@
     //   transform: translate(-50%, -50%);
     // }
   }
+
+  @include mini-tablet{
+    flex-direction: column;
+    a{
+      width: 70%;
+      margin-bottom: 20px;
+    }
+  }
 }

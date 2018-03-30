@@ -96,3 +96,31 @@
     margin-bottom: 30px;
   }
 }
+
+
+
+@include mini-tablet{
+  .cart__item,.price-block, .price-block__buttons{
+    width: 100%;
+  }
+};
+@include laptop{
+  .cart__item, .price-block, .price-block__buttons{
+    width:70%;
+    margin: 0 auto;
+  }
+  .price-block{
+    margin: 20px auto;
+    flex-direction: column;
+  }
+  .price-block__text{
+    width: 90%;
+    margin-bottom: 10px;
+  }
+  .price-block__pirces{
+    padding: 0 20px;
+  }
+  .total-price{
+    margin-top: 10px;
+  }
+}

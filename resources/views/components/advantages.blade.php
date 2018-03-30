@@ -4,21 +4,21 @@
   </div>
   <div class="container advantages__container">
     <div class="advantages__item">
-      <i class="fas fa-truck"></i>
+      <i class="fas fa-space-shuttle"></i>
       <div class="advantages__item-title">
-        Доставка по городу бесплатно.
+        Скорость.</br> Доставка эксресс почтой по всей России.
       </div>
     </div>
     <div class="advantages__item">
-      <i class="far fa-credit-card"></i>
+      <i class="fas fa-laptop"></i>
       <div class="advantages__item-title">
-        Оплата наличными либо по банковской карте.
+        Удобство.</br> Оформляйте заказ не выходя из дома.
       </div>
     </div>
     <div class="advantages__item">
-      <i class="far fa-thumbs-up"></i>
+      <i class="fas fa-dollar-sign"></i>
       <div class="advantages__item-title">
-        Доступность. Мы находимся в крупном торговом центре.
+        Доступность.</br> Мы предлагаем продукцию по самым доступным ценам в стране.
       </div>
     </div>
   </div>

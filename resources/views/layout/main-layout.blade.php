@@ -17,11 +17,11 @@
       <!-- overlay menu -->
       @include('components.overlay-menu')
       <!-- end overlay menu -->
-      
+
       <div id="app">
         <header>
           <a href="/" class="logo">SportPit</a>
-          <nav class="header__navigation">
+          <nav class="navigation">
             <ul>
               <li>
                 <a href="/products">Категории</a>
@@ -47,23 +47,24 @@
 
 
           <div class="header__icons">
+            <a href="/cart"><i class="fas fa-shopping-cart"></i></a>
             @guest
             <a href="/login"><i class="far fa-user"></i></a>
             @else
-            <div class="user_name">
+            <span class="user_name">
               {{ Auth::user()->name }}
-            </div>
+            </span>
             <a href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                          document.getElementById('logout-form').submit();">
-                выход
+                <i class="fas fa-sign-out-alt"></i>
             </a>
 
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 {{ csrf_field() }}
             </form>
             @endguest
-            <a href="/cart"><i class="fas fa-shopping-cart"></i></a>
+
           </div>
 
           <!-- burger menu -->
@@ -78,12 +79,63 @@
         <main>
           @yield('content')
         </main>
-        <footer>
-
+        <footer class="footer">
+          <div class="footer__navigation-container">
+            <div class="footer__title">
+              Меню
+            </div>
+            <nav class="footer__navigation">
+              <ul>
+                <li>
+                  <a href="/products">Категории</a>
+                </li>
+                <li>
+                  <a href="#">Производители</a>
+                </li>
+                <li>
+                  <a href="#">Блог</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div class="footrer__contacts-container">
+            <div class="footer__title">
+              Контакты
+            </div>
+            <div class="footer__contacts">
+              <span>тел: </span>
+              <a href="tel:89630424243" class="footer__tel" title="Контактный телефон"> 89630424243 </a>
+              <div class="footer__adress">
+                <span>г. Санкт-Петербург пр. Большевиков 3</span>
+              </div>
+              <div class="footer__title">
+                Мы в социальных сетях:
+              </div>
+              <div class="socials">
+                <a href="#"><i class="fab fa-vk"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+              </div>
+            </div>
+          </div>
         </footer>
       </div>
 
       <script src="{{asset('js/app.js')}}"></script>
+      <script type="text/javascript">
+        const burger = document.querySelector('#nav-burger');
+        const overlayMenu = document.querySelector('#overlay-menu');
+        burger.addEventListener('click', function() {
+          if(overlayMenu.style.left == "-70%"){
+            burger.classList.add('change');
+            overlayMenu.style.left = "0";
+          }else{
+            burger.classList.remove('change');
+            overlayMenu.style.left = "-70%";
+          }
+        });
+      </script>
+      </script>
       @yield('extra-js')
     </body>
 </html>

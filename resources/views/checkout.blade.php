@@ -18,7 +18,18 @@
 <div class="container checkout__container">
   <form class="form checkout__form" action="{{route('checkout.store')}}" method="post" id="payment-form">
     {{csrf_field()}}
+    <div class="form__title">
+      Адрес заказчика:
+    </div>
     <div class="form__address">
+      <div class="form__group">
+        <label for="region">Обалсть:</label>
+        <input type="text" name="region" placeholder="Область" id="region" required>
+      </div>
+      <div class="form__group">
+        <label for="post">Индекс:</label>
+        <input type="text" name="post" placeholder="почтовый индекс" id="post" required>
+      </div>
       <div class="form__group">
         <label for="city">Город:</label>
         <input type="text" name="city" placeholder="город" id="city" required>
@@ -36,6 +47,22 @@
         <input type="text" name="flat_number" class="form__address-flat" id="flat-number" required>
       </div>
     </div>
+
+    <div class="form__title">
+      Личаня информация:
+    </div>
+    <div class="form__name">
+      <div class="form__group">
+        <label for="name">Имя:</label>
+        <input type="text" name="name" placeholder="Введите имя" id="name" required>
+      </div>
+    </div>
+    <div class="form__surname">
+      <div class="form__group">
+        <label for="surname">Фамилия:</label>
+        <input type="text" name="surname" placeholder="Введите фамилию" id="surname" required>
+      </div>
+    </div>
     <div class="form__email">
       <div class="form__group">
         <label for="email">E-mail:</label>
@@ -47,6 +74,13 @@
         <label for="phone">Телефон:</label>
         <input type="tel" name="phone" placeholder="phone" id="phone" required>
       </div>
+    </div>
+    <div class="form__comments">
+      <div class="form__group">
+        <label for="order-comments">Комментарии:</label>
+        <textarea name="comments" rows="5" id="order-comments" placeholder="Комментарии к заказу"></textarea>  
+      </div>
+
     </div>
     <!-- <div class="payment-details">
       <div class="payment-details__title">

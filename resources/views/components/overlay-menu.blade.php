@@ -20,17 +20,5 @@
   </nav>
 </div>
 @section('extra-js')
-<script type="text/javascript">
-  const burger = document.querySelector('#nav-burger');
-  const overlayMenu = document.querySelector('#overlay-menu');
-  burger.addEventListener('click', function() {
-    if(overlayMenu.style.left == "-70%"){
-      burger.classList.add('change');
-      overlayMenu.style.left = "0";
-    }else{
-      burger.classList.remove('change');
-      overlayMenu.style.left = "-70%";
-    }
-  });
-</script>
+
 @endsection

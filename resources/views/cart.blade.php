@@ -35,10 +35,19 @@
           {{method_field('DELETE')}}
           <button type="submit" name="button">Удалить</button>
         </form>
-        <form class="form" action="{{route('cart.saveforlater', $item->rowId)}}" method="post">
+
+        <!-- TODO: сделать возможность сохранять товары в корзине,
+            сейчас при сохранении несокльикх товаров все ломается и если
+            добавлять товар обратно в корзину если там уже есть товар, то все
+            снова ламается
+        -->
+        <!-- <form class="form" action="{{route('cart.saveforlater', $item->rowId)}}" method="post">
           {{csrf_field()}}
           <button type="submit" name="button">Сохранить</button>
-        </form>
+        </form> -->
+
+
+
       </div>
       <div class="cart__item-input">
         <select  name="" class="cart__item-select" data-id="{{$item->rowId}}">
@@ -59,7 +68,7 @@
 
   <div class="price-block">
     <p class="price-block__text">
-    Aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehen
+      Вы можете указать интересующее вас количество или удалить его из корзины.
     </p>
     <div class="price-block__pirces">
       <div class="subtotal">
@@ -76,7 +85,10 @@
       </div>
     </div>
   </div>
-  <a href="{{route('checkout.index')}}" class="btn btn-success">Оплатить</a>
+
+  <div class="price-block__buttons">
+    <a href="{{route('checkout.index')}}" class="btn btn-success">Оплатить</a>
+  </div>
 
   <div class="card-mini__container save-for-later__container">
     @if(Cart::instance('saveForLater')->count() > 0)
@@ -108,7 +120,7 @@
         </div>
       @endforeach
     @else
-      <span>Нет сохраненных товаров</span>
+      <span>Нет сохраненных товаров <i style="font-size: 0.8rem; color:#333;">(функция "сохранения товаров" в разарботке)</i></span> 
     @endif
   </div>
 </div>
