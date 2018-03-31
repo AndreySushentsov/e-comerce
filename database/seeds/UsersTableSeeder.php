@@ -24,5 +24,6 @@ class UsersTableSeeder extends Seeder
                 'role_id'        => $role->id,
             ]);
         }
+
     }
 }

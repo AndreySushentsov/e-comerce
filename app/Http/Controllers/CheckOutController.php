@@ -83,30 +83,25 @@ class CheckOutController extends Controller
     }
 
 
-    protected function addToOrdersTables($request, $error){
+    protected function addToOrdersTables($request, $error)
+    {
+      // dd($request->all());
       //Добавить в таблицу Order
       $order = Order::create([
         'user_id' => auth()->user() ? auth()->user()->id : null,
-        // 'billing_region' => $request->region,
-        // 'billing_post-code' => $request->post,
-
+        'billing_region' => $request->region,
+        'billing_post-code' => $request->post,
         'billing_city' => $request->city,
         'billing_street'=> $request->street,
         'billing_house'=> $request->house_number,
         'billing_flat' => $request->flat_number,
-        // 'billing_name' => $request->name,
-        // 'billing_surname' => $request->surname,
+        'billing_name' => $request->name,
+        'billing_surname' => $request->surname,
         'billing_email'=> $request->email,
         'billing_phone' => $request->phone,
-
-        // 'billing_comments' => $request->comments,
-
+        'billing_comments' => $request->comments,
 
 
-
-
-
-        
         // 'billing_discount' => $this->getNumbers()->get('discount'),
         // 'billing_discount_code' => $this->getNumbers()->get('code'),
         // 'billing_subtotal' => $this->getNumbers()->get('newSubtotal'),

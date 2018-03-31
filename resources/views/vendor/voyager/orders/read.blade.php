@@ -31,7 +31,7 @@
                     <ul>
                       @foreach($products as $product)
                         <li>
-                          <div>Номер заказа: {{$product->id}}</div>
+                          <div>Номер продукта: {{$product->id}}</div>
                           <div>Название: {{$product->name}}</div>
                           <div>Цена: {{$product->price}}</div>
                           <div>Клоличество: {{$product->pivot->quantity}}</div>
@@ -39,7 +39,7 @@
                       @endforeach
                     </ul>
                   </div>
-                  
+
                     <!-- form start -->
                     @foreach($dataType->readRows as $row)
                         @php $rowDetails = json_decode($row->details);

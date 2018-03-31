@@ -78,7 +78,7 @@
     <div class="form__comments">
       <div class="form__group">
         <label for="order-comments">Комментарии:</label>
-        <textarea name="comments" rows="5" id="order-comments" placeholder="Комментарии к заказу"></textarea>  
+        <textarea name="comments" rows="5" id="order-comments" placeholder="Комментарии к заказу"></textarea>
       </div>
 
     </div>
@@ -104,7 +104,7 @@
       </div>
 
     </div> -->
-    <input id="complete-order" type="submit"  class="btn btn-success form__submit" value="Оплатить">
+    <input id="complete-order" type="submit"  class="btn btn-success form__submit" value="Оформить заказ">
   </form>
   <div class="checkout__order">
     @foreach(Cart::content() as $item)
