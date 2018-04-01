@@ -8,13 +8,16 @@
   <nav class="overlay-menu__navigation">
     <ul>
       <li>
-        <a href="/products">Категории</a>
+        <a href="/products">Каталог товров</a>
       </li>
-      <li>
+      <!-- <li>
         <a href="#">Производители</a>
+      </li> -->
+      <li>
+        <a href="/delivery">Оплата и доставка</a>
       </li>
       <li>
-        <a href="#">Блог</a>
+        <a href="/contacts">Контакты</a>
       </li>
     </ul>
   </nav>

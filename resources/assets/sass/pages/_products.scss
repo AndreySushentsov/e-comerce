@@ -66,3 +66,20 @@
   }
 
 }
+
+.price-block__buttons{
+  display: flex;
+  width: 50%;
+  justify-content: space-between;
+  a:last-child{
+    color:#333;
+  }
+
+  @include mini-tablet{
+    flex-direction: column;
+    .btn{
+      margin-bottom: 10px;
+      text-align: center;
+    }
+  };
+}

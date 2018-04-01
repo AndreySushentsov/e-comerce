@@ -87,7 +87,8 @@
   </div>
 
   <div class="price-block__buttons">
-    <a href="{{route('checkout.index')}}" class="btn btn-success">Оплатить</a>
+    <a href="{{route('checkout.index')}}" class="btn btn-success">Оформить заказ</a>
+    <a href="{{route('product.product')}}" class="btn">Продолжить покупки.</a>
   </div>
 
   <div class="card-mini__container save-for-later__container">
@@ -120,7 +121,7 @@
         </div>
       @endforeach
     @else
-      <span>Нет сохраненных товаров <i style="font-size: 0.8rem; color:#333;">(функция "сохранения товаров" в разарботке)</i></span> 
+      <span>Нет сохраненных товаров <i style="font-size: 0.8rem; color:#333;">(функция "сохранения товаров" в разарботке)</i></span>
     @endif
   </div>
 </div>

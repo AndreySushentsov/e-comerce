@@ -116,7 +116,7 @@
           <a href="#">{{$item->model->name}}</a>
         </div>
         <div class="cart__item-input">
-          <input type="number" min="0" name="" value="{{$item->model->count}}">
+          <input type="number" min="0" name="" value="{{$item->model->count()}}" readonly>
         </div>
         <div class="cart__item-price">
           {{$item->model->price}}

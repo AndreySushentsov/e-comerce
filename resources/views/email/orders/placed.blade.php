@@ -79,7 +79,7 @@
                               <tbody>
                                 <tr>
                                   <td style="font-family: Avenir, Helvetica, sans-serif; box-sizing: border-box;">
-                                    <p style="font-family: Avenir, Helvetica, sans-serif; box-sizing: border-box; color: #74787E; line-height: 1.5em; margin-top: 0; text-align: left; font-size: 12px;">Наш менеджер свяжется с вами в ближайшее время.</p>
+                                    <p style="font-family: Avenir, Helvetica, sans-serif; box-sizing: border-box; color: #74787E; line-height: 1.5em; margin-top: 0; text-align: left; font-size: 12px;">Наш менеджер свяжется с вами в ближайшее время, если этого не произошло в течеии часа, то в можете уточинть статус заказа по телефону <strong>8 (963) 042-42-43</strong></p>
                                   </td>
                                 </tr>
                               </tbody>

@@ -24,13 +24,16 @@
           <nav class="navigation">
             <ul>
               <li>
-                <a href="/products">Категории</a>
+                <a href="/products">Каталог товаров</a>
               </li>
-              <li>
+              <!-- <li>
                 <a href="#">Производители</a>
+              </li> -->
+              <li>
+                <a href="/delivery">Оплата и доставка</a>
               </li>
               <li>
-                <a href="#">Блог</a>
+                <a href="/contacts">Контакты</a>
               </li>
             </ul>
           </nav>
@@ -87,13 +90,16 @@
             <nav class="footer__navigation">
               <ul>
                 <li>
-                  <a href="/products">Категории</a>
+                  <a href="/products">Каталог товаров</a>
                 </li>
-                <li>
+                <!-- <li>
                   <a href="#">Производители</a>
+                </li> -->
+                <li>
+                  <a href="/delivery">Оплата и доставка</a>
                 </li>
                 <li>
-                  <a href="#">Блог</a>
+                  <a href="/contacts">Контакты</a>
                 </li>
               </ul>
             </nav>
@@ -106,7 +112,7 @@
               <span>тел: </span>
               <a href="tel:89630424243" class="footer__tel" title="Контактный телефон"> 89630424243 </a>
               <div class="footer__adress">
-                <span>г. Санкт-Петербург пр. Большевиков 3</span>
+                <span>г. Санкт-Петербург пр. Лиговский 108</span>
               </div>
               <div class="footer__title">
                 Мы в социальных сетях:

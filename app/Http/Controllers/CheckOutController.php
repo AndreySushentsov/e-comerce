@@ -74,7 +74,7 @@ class CheckOutController extends Controller
           Cart::instance('default')->destroy();
           session()->forget('coupone');
 
-          return back()->with('success_message', 'Заказ принят, мы свяжемся с вами в ближайшее время.');
+          return back()->with('success_message', 'Заказ принят, проверте пожалуйста почту, мы свяжемся с вами в ближайшее время, что бы обсудить условия доставки и оплаты.');
 
         } catch (CardErrorException $e) {
           $this->addToOrdersTables($request, $e->getMessage());

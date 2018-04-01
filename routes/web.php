@@ -14,6 +14,8 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 */
 
 Route::get('/', 'MainPageController@index');
+Route::get('/delivery', 'DeliveryController@index')->name('dilivery.index');
+Route::get('/contacts', 'ContactsController@index')->name('contacts.index');
 Route::get('/products', 'ProductsPageController@index')->name('product.product');
 Route::get('/products/{product}', 'ProductsPageController@show')->name('product.show');
 Route::get('/cart', 'CartController@index')->name('cart.index');
@@ -46,4 +48,4 @@ Route::group(['prefix' => 'admin'], function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/search','SearchController@index')->name('search');  
+Route::get('/search','SearchController@index')->name('search');

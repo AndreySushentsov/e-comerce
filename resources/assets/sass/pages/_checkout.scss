@@ -8,6 +8,11 @@
 }
 .checkout__order{
   width: 45%;
+  .cart__item-input{
+    input{
+      text-align: center;
+    }
+  }
 }
 .payment-details__title{
   margin: 30px 0;
